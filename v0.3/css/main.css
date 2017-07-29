@@ -31,7 +31,10 @@
 }
 
 .slide--dream h2 {
-  color:black;
+  color:white;
+  width:block;
+  max-width:400px;
+  margin:50px 0 0 -50px;
 }
 
 
@@ -59,10 +62,15 @@
   margin-top: 180px;
   margin-left: 280px;
 }
-.slide--techs .image--verified {
-  width: 340px;
+.slide--techs .image--psd {
+  width: 200px;
   margin-top: 150px;
   margin-left: -320px;
+}
+.slide--techs .image--verified {
+  width: 100px;
+  margin-top: 180px;
+  margin-left: -301px;
 }
 .slide--techs .image--plane {
   width: 400px;
@@ -94,8 +102,8 @@
   margin-top: 220px;
 }
 .slide--reals .image--designer {
-  width: 170px;
-  margin-left: -380px;
+  width: 270px;
+  margin-left: -390px;
 }
 .slide--reals .image--deadline {
   width: 340px;
@@ -103,4 +111,26 @@
 }
 .slide--reals .image--facebook {
   width: 700px;
+}
+.many-psds,
+.many-psds:after,
+.many-psds:before {
+  content:' ';
+  display:block;
+  left: -50px;
+  top: -10px;
+  bottom: 0;
+  width: 100px;
+  background: url(../i/i-psd.svg) repeat-y;
+  background-size: contain;
+  position: absolute;
+}
+
+.many-psds:before {
+  left:50px;
+  top:10px;
+}
+.many-psds:after {
+  left:100px;
+  top:20px;
 }
