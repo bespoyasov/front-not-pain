@@ -1,0 +1,71 @@
+.slide {
+  position: relative;
+}
+
+.slide img {
+  width:48%; 
+  height:auto;
+  display:block;
+  margin:auto;
+}
+
+.slide figure {
+  display:flex;
+  justify-content: space-between
+}
+
+
+
+.slide--dream {
+  background: url(../i/freelance-dream.jpg) no-repeat center;
+  background-size: cover;
+}
+
+.slide--dream h2 {
+  color:black;
+}
+
+
+
+.slide--techs {
+  display:flex;
+}
+
+.slide--techs .image {
+  position: absolute;
+  margin:auto;
+  height:auto;
+  top:50%;
+  left:50%;
+  transform: translate(-50%, -50%);
+}
+
+.slide--techs .image--chrome {
+  width: 180px;
+  margin-top:60px;
+}
+.slide--techs .image--es6 {
+  width:150px;
+  margin-left: -380px;
+  margin-top: -190px;
+}
+.slide--techs .image--rav {
+  width: 260px;
+  margin-left: 290px;
+  margin-top:-50px;
+}
+.slide--techs .image--components {
+  width: 220px;
+  margin-top: 180px;
+  margin-left: 280px;
+}
+.slide--techs .image--verified {
+  width: 340px;
+  margin-top: 150px;
+  margin-left: -320px;
+}
+.slide--techs .image--plane {
+  width: 400px;
+  margin-top: -200px;
+  margin-left: -30px;
+}
