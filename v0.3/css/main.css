@@ -144,3 +144,112 @@
   left:100px;
   top:20px;
 }
+
+
+
+.slide--analogy {
+  background: url(../i/image-adventure.jpg) no-repeat right bottom;
+  background-size: cover;
+}
+
+.slide--analogy h2 {
+  color:white;
+  font-size: 80px;
+  text-shadow: 0 1px 2px rgba(0,0,0,.5)
+}
+
+.slide--breathe {
+  background: url(../i/image-bamboozle.jpg) no-repeat 0 0 / cover;
+}
+
+.slide--breathe h2 {
+  color:white;
+  font-size: 70px;
+  text-shadow: 0 1px 2px rgba(0,0,0,.5);
+  margin-left:-50px;
+  margin-top:-40px;
+  max-width:700px;
+}
+
+.move-anger {
+  position: absolute;
+  background: url(../i/image-table-anger.png) no-repeat 0 0 / contain;
+  bottom:0;
+  right:0;
+  width: 400px;
+  height: 400px;
+}
+
+.move-no-anger {
+  background: url(../i/image-poker-face.png) no-repeat 0 0 / contain;
+  position: absolute;
+  bottom:0;
+  right:0;
+  width: 400px;
+  height: 350px;
+}
+
+#move-should-1 ul {
+  margin-right:300px;
+  display:block;
+}
+
+.image--magic {
+  margin:auto;
+  width:1000px;
+}
+
+.slide--tools {
+  display:flex;
+  flex-wrap: wrap;
+}
+
+.slide--tools h2 {
+  width:100%;
+}
+
+.slide--tools figure {
+  width:50%;
+  flex-wrap: wrap;
+  text-align: center;
+  margin-top:-30px;
+}
+
+.slide--tools figure img {
+  width:210px;
+  margin:0 auto auto;
+  display:block;
+}
+
+.slide--tools figure:nth-child(3) img {
+  width:105px;
+}
+
+.slide--tools figcaption {
+  display:block;
+  width:100%;
+  margin:0;
+  font-style: italic;
+  color:rgba(0,0,0,.4);
+}
+
+.slide--other {
+  background: url(../i/image-harolds.jpg) no-repeat center center;
+  background-size: cover;
+}
+
+.slide--sad {
+  background: url(../i/image-sad-harold.jpg) no-repeat center center;
+}
+
+.slide--ready {
+  font-size:0.9em;
+}
+
+.slide--ready p {
+  margin-bottom:0;
+}
+
+.slide--offend .shout {
+  font-size:100px;
+}
