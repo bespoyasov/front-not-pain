@@ -26,8 +26,7 @@
     
     e.preventDefault()
     const sectionName = link.getAttribute('href').replace('#', '')
-    const section = document.getElementById(sectionName)
-    scrollToSection(section)
+    scrollToSection(sectionName)
   }
 
   function handleScroll() {
@@ -44,10 +43,11 @@
 
 
   // main logic
-  function scrollToSection(section) {
-    if (!section) return
-    shouldWatchScroll = false
+  function scrollToSection(sectionName) {
+    const section = document.getElementById(sectionName)
+    if (!sectionName || !section) return
 
+    shouldWatchScroll = false
     window.scrollTo({ 
       top: getElementOffsetTop(section), 
       behavior: 'smooth' 
