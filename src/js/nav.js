@@ -1,8 +1,3 @@
-/**
- * Todo:
- * - add throttle
- * - add section watcher
- */
 (function(){
   // passive event polyfill
   let passiveArg = false
@@ -35,12 +30,12 @@
     scrollToSection(section)
   }
 
-  function handleScroll(e) {
+  function handleScroll() {
     if (window.scrollY >= limit) nav.classList.add('is-fixed')
     else nav.classList.remove('is-fixed')
 
     if (!shouldWatchScroll) return
-    // watch for section change...
+    // detect section change ...
   }
 
   function handleWindowResize() {
