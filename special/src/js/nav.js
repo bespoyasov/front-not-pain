@@ -14,7 +14,7 @@
   } catch (e) {}
 
 
-  // basic
+  // nodes and listeners
   const nav = document.getElementById('nav')
   let limit = calcScrollLimit(),
       shouldWatchScroll = true
@@ -24,6 +24,7 @@
   nav.addEventListener('click', handleLinkClick)
 
 
+  // hadlers
   function handleLinkClick(e) {
     const link = e.target.closest('a')
     if (!link) return
@@ -39,7 +40,7 @@
     else nav.classList.remove('is-fixed')
 
     if (!shouldWatchScroll) return
-    // watch for section change
+    // watch for section change...
   }
 
   function handleWindowResize() {
@@ -47,10 +48,9 @@
   }
 
 
+  // main logic
   function scrollToSection(section) {
     if (!section) return
-    
-    // for link to change immediatelly
     shouldWatchScroll = false
 
     window.scrollTo({ 
@@ -65,6 +65,7 @@
   }
 
 
+  // helpers
   function calcScrollLimit() {
     const node = document.getElementById('pain')
     return getElementOffsetTop(node)
