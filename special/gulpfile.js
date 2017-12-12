@@ -32,7 +32,7 @@ const NON_BREAKING_HYPHEN = '‑'
 const WATCHERS = {
   html: ['./src/**/*.html'],
   styles: ['./src/css/*.css'],
-  scripts: ['./js/**/*.js'],
+  scripts: ['./src/js/**/*.js'],
   images: [
     './src/static/img/**/*.svg', 
     './src/static/img/**/*.png', 

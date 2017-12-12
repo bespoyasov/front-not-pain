@@ -4,8 +4,8 @@
   min-height: 540px;
   display: flex;
   
-  background-image: url(../img/sad-frontender.jpg);
   background-color: var(--header-background);
+  background-image: url(../img/sad-frontender.jpg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;

@@ -1,11 +1,20 @@
 .nav {
+  position: relative;
   padding:3.5rem 0 2rem;
-  position: sticky;
-  top:0;
   max-height:100vh;
   overflow: scroll;
+  top:0;
   font-size: 0.9rem;
   line-height:1.25em;
+  font-family: var(--font-sans-serif);
+}
+
+/* scroll inside sticky-container doesn't work properly, 
+ * so we have to implement it manually I guess */
+.nav.is-fixed {
+  position: fixed;
+  width: var(--nav-width);
+  top:0;
 }
 
 .nav ul,
@@ -14,7 +23,7 @@
 }
 
 .nav li {
-  margin-bottom:0.5rem;
+  margin-bottom:0.6rem;
 }
 
 .nav a {

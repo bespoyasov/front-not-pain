@@ -64,6 +64,7 @@ figcaption {
   padding-top:0.3rem;
   color:var(--grey-5);
   text-align: center;
+  font-family: var(--font-sans-serif);
 }
 
 a {

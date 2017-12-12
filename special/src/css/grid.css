@@ -19,8 +19,8 @@
 }
 
 .column--left {
-  max-width: 200px;
-  width:25%;
+  width: var(--nav-width);
+  max-width: var(--nav-width);
 }
 
 .column--right {
