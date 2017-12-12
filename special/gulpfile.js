@@ -75,9 +75,8 @@ gulp.task('html', function() {
 })
 
 gulp.task('css', function() {
-  gulp.src('./src/css/main.css')
+  gulp.src('./src/css/style.css')
     .pipe(importCss())
-    .pipe(rename('styles.css'))
     .pipe(postcss([ autoprefixer() ]))
     .pipe(cssnano())
     .pipe(gulp.dest('./build/css/'))
@@ -99,8 +98,8 @@ gulp.task('js', function() {
 
 gulp.task('watch', function() {
   gulp.watch(WATCHERS.html, ['html'])
-  gulp.watch(WATCHERS.styles, ['styles'])
-  gulp.watch(WATCHERS.scripts, ['scripts'])
+  gulp.watch(WATCHERS.styles, ['css'])
+  gulp.watch(WATCHERS.scripts, ['js'])
 })
 
 gulp.task('webserver', function() {

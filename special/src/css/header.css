@@ -3,9 +3,13 @@
   height:100vh;
   min-height: 540px;
   text-align: center;
+  background: url(../img/sad-frontender.jpg) no-repeat center / cover;
+  display: flex;
 }
 
 .header h1 {
   font-size: 5rem;
   line-height: 1.2em;
+  padding: 20px 40px;
+  margin:auto;
 }
