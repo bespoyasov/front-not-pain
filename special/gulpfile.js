@@ -17,6 +17,10 @@ const concat = require('gulp-concat')
 const babel = require('gulp-babel')
 const minify = require('gulp-minify')
 
+const imagemin = require('gulp-imagemin')
+const imageResize = require('gulp-image-resize')
+const webp = require('gulp-webp')
+
 const watch = require('gulp-watch')
 const webserver = require('gulp-webserver')
 
@@ -53,8 +57,8 @@ const typografRules = [{
 
 
 // tasks
-gulp.task('default', ['html', 'watch', 'webserver'])
-gulp.task('build', ['html', 'css', 'js', 'static', 'stuff'])
+gulp.task('default', ['html', 'css', 'js', 'watch', 'webserver'])
+gulp.task('build', ['html', 'css', 'js', 'images', 'stuff'])
 
 gulp.task('html', function() {
   gulp.src('./src/index.html')
@@ -109,15 +113,44 @@ gulp.task('webserver', function() {
 })
 
 gulp.task('stuff', function() {
-  gulp.src('./dev/.htaccess')
+  gulp.src('./src/.htaccess')
     .pipe(gulp.dest('./build/'))
   
-  gulp.src('./dev/robots.txt')
+  gulp.src('./src/robots.txt')
     .pipe(gulp.dest('./build/'))
 
-  gulp.src('./dev/humans.txt')
+  gulp.src('./src/humans.txt')
     .pipe(gulp.dest('./build/'))
 
-  gulp.src('./dev/static/favicons/**/*')
+  gulp.src('./src/static/favicons/**/*')
     .pipe(gulp.dest('./build/favicons/'))
+})
+
+
+gulp.task('resize', function() {
+  // gulp.src('./dev/static/img/projects/previews_xl/*.{jpg,png}')
+  //   .pipe(imageResize({ width: 444, height: 400 }))
+  //   .pipe(rename(function(path) { path.basename += '-1x' }))
+  //   .pipe(gulp.dest('./dev/tmp/img/projects/previews_xl/'))
+})
+
+
+gulp.task('images', ['resize'], function() {
+//   // move
+//   gulp.src('./src/static/img/**/*.svg')
+//     .pipe(gulp.dest('./build/img/'))
+
+  // minify
+  gulp.src('./src/static/img/**/*.jpg')
+    .pipe(imagemin())
+    .pipe(gulp.dest('./build/img/'))
+
+  gulp.src('./src/static/img/**/*.png')
+    .pipe(imagemin())
+    .pipe(gulp.dest('./build/img/'))
+  
+//   // convert to webp
+//   gulp.src('./src/static/img/projects/previews/*.{jpg,png}')
+//     .pipe(webp())
+//     .pipe(gulp.dest('./build/img/projects/previews/'))
 })
