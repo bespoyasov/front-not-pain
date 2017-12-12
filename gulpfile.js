@@ -92,8 +92,8 @@ gulp.task('js', function() {
     .pipe(minify())
     .pipe(gulp.dest('./build/js/'))
   
-  // gulp.src('./src/service-worker.js')
-  //   .pipe(gulp.dest('./build/'))
+  gulp.src('./src/service-worker.js')
+    .pipe(gulp.dest('./build/'))
 })
 
 gulp.task('watch', function() {
