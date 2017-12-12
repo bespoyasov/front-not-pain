@@ -61,7 +61,7 @@ gulp.task('default', ['html', 'css', 'js', 'images', 'watch', 'webserver'])
 gulp.task('build', ['html', 'css', 'js', 'images', 'stuff'])
 
 gulp.task('html', function() {
-  gulp.src('./src/**/*.html')
+  gulp.src('./src/index.html')
     .pipe(include())
       .on('error', console.log)
     .pipe(typograf({ 
