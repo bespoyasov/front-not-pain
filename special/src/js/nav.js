@@ -5,10 +5,10 @@
  */
 (function(){
   // passive event polyfill
-  let supportsPassive = false
+  let passiveArg = false
   try {
     const opts = Object.defineProperty({}, 'passive', {
-      get: function() { supportsPassive = true }
+      get: () => {passiveArg = {passive: true}}
     })
     window.addEventListener("test", null, opts)
   } catch (e) {}
@@ -19,15 +19,22 @@
   let limit = calcScrollLimit(),
       shouldWatchScroll = true
 
-  window.addEventListener('scroll', handleScroll, !supportsPassive ? false : { 
-    passive: true 
-  })
-
+  window.addEventListener('scroll', handleScroll, passiveArg)
   window.addEventListener('resize', handleWindowResize)
   nav.addEventListener('click', handleLinkClick)
 
 
-  function handleScroll (e) {
+  function handleLinkClick(e) {
+    const link = e.target.closest('a')
+    if (!link) return
+    
+    e.preventDefault()
+    const sectionName = link.getAttribute('href').replace('#', '')
+    const section = document.getElementById(sectionName)
+    scrollToSection(section)
+  }
+
+  function handleScroll(e) {
     if (window.scrollY >= limit) nav.classList.add('is-fixed')
     else nav.classList.remove('is-fixed')
 
@@ -39,20 +46,17 @@
     limit = calcScrollLimit()
   }
 
-  function handleLinkClick(e) {
-    const link = e.target.closest('a')
-    if (!link) return
-    
-    e.preventDefault()
-    const sectionName = link.getAttribute('href').replace('#', '')
-    const section = document.getElementById(sectionName)
-    if (!section) return
 
-    // for link to change immediatelly and not to flash on scroll
+  function scrollToSection(section) {
+    if (!section) return
+    
+    // for link to change immediatelly
     shouldWatchScroll = false
 
-    const offset = getElementOffsetTop(section)
-    window.scrollTo({ top: offset, behavior: 'smooth' })
+    window.scrollTo({ 
+      top: getElementOffsetTop(section), 
+      behavior: 'smooth' 
+    })
     
     setTimeout(() => {
       shouldWatchScroll = true
