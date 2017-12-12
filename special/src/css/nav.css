@@ -1,0 +1,12 @@
+nav {
+  padding:3.5rem 0 2rem;
+  position: sticky;
+  top:0;
+  max-height:100vh;
+  overflow: scroll;
+}
+
+nav ul,
+nav li {
+  list-style: none;
+}
