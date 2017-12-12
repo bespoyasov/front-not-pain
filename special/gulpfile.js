@@ -57,7 +57,7 @@ const typografRules = [{
 
 
 // tasks
-gulp.task('default', ['html', 'css', 'js', 'watch', 'webserver'])
+gulp.task('default', ['html', 'css', 'js', 'images', 'watch', 'webserver'])
 gulp.task('build', ['html', 'css', 'js', 'images', 'stuff'])
 
 gulp.task('html', function() {
@@ -127,17 +127,17 @@ gulp.task('stuff', function() {
 
 
 gulp.task('resize', function() {
-  // gulp.src('./dev/static/img/projects/previews_xl/*.{jpg,png}')
-  //   .pipe(imageResize({ width: 444, height: 400 }))
+  // gulp.src('./dev/static/img/**/*.{jpg,png}')
+  //   .pipe(imageResize({ percentage: 50 }))
   //   .pipe(rename(function(path) { path.basename += '-1x' }))
   //   .pipe(gulp.dest('./dev/tmp/img/projects/previews_xl/'))
 })
 
 
 gulp.task('images', ['resize'], function() {
-//   // move
-//   gulp.src('./src/static/img/**/*.svg')
-//     .pipe(gulp.dest('./build/img/'))
+  // move
+  gulp.src('./src/static/img/**/*.svg')
+    .pipe(gulp.dest('./build/img/'))
 
   // minify
   gulp.src('./src/static/img/**/*.jpg')
@@ -148,8 +148,8 @@ gulp.task('images', ['resize'], function() {
     .pipe(imagemin())
     .pipe(gulp.dest('./build/img/'))
   
-//   // convert to webp
-//   gulp.src('./src/static/img/projects/previews/*.{jpg,png}')
-//     .pipe(webp())
-//     .pipe(gulp.dest('./build/img/projects/previews/'))
+  // convert to webp
+  gulp.src('./src/static/img/**/*.{jpg,png}')
+    .pipe(webp())
+    .pipe(gulp.dest('./build/img/'))
 })

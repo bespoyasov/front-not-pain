@@ -4,8 +4,16 @@
 
   --header-background: #526850;
 
+  --grey-1: rgba(0,0,0,.1);
+  --grey-2: rgba(0,0,0,.2);
   --grey-3: rgba(0,0,0,.3);
   --grey-5: rgba(0,0,0,.5);
+
+  --light-brown: #f7f5ec;
+  --brown: #887744;
+  --purple: #542189;
+  --blue: #0000fe;
+  --red: #fb3347;
  
   --white: white;
   --black: black;

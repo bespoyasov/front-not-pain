@@ -31,19 +31,6 @@ h2 {
   margin-bottom: 0.6rem;
 }
 
-blockquote {
-  margin:0;
-  padding:0.3rem 1rem 0.3rem;
-  display:block;
-}
-
-figcaption {
-  font-style: normal;
-  font-size: 0.8rem;
-  color:var(--grey-5);
-  text-align: center;
-}
-
 p {
   margin-top:1rem;
 }
@@ -51,6 +38,42 @@ p {
 h2 + p,
 h1 + p {
   margin-top: 0;
+}
+
+blockquote {
+  margin:1.6rem 0;
+  padding: 1.3rem 3rem 1.8rem;
+  display:block;
+  background: var(--light-brown);
+  position: relative;
+}
+
+blockquote:before {
+  content: '«';
+  position: absolute;
+  left: 1rem;
+  top: .9rem;
+  color: var(--grey-1);
+  font-size: 3.2rem
+}
+
+figcaption {
+  font-style: normal;
+  font-size: 0.8rem;
+  line-height:1.2em;
+  padding-top:0.3rem;
+  color:var(--grey-5);
+  text-align: center;
+}
+
+a {
+  color:var(--blue);
+}
+a:visited {
+  color: var(--purple);
+}
+a:hover {
+  color:var(--red);
 }
 
 
@@ -69,29 +92,5 @@ h1 + p {
   font-size: 0.875em;
   letter-spacing: 0.15em;
   margin-right: -0.15em;
+  text-transform: uppercase;
 }
-
-.center {
-  max-width: 1400px;
-  margin:0 auto;
-  padding:0 1.5rem;
-  width:100%;
-}
-.center--narrow {
-  max-width:700px;
-}
-
-.grid {
-  position: relative;
-  display: flex;
-}
-
-.column {
-  flex: 1;
-}
-
-.column--left {
-  max-width: 200px;
-  width:25%;
-}
-

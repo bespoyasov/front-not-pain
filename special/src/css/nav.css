@@ -1,12 +1,22 @@
-nav {
+.nav {
   padding:3.5rem 0 2rem;
   position: sticky;
   top:0;
   max-height:100vh;
   overflow: scroll;
+  font-size: 0.9rem;
+  line-height:1.25em;
 }
 
-nav ul,
-nav li {
+.nav ul,
+.nav li {
   list-style: none;
+}
+
+.nav li {
+  margin-bottom:0.5rem;
+}
+
+.nav a {
+  text-decoration: none;
 }

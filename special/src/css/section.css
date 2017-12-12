@@ -5,4 +5,16 @@
 
 .preface {
   padding:5rem 0 3rem;
+  min-height:100vh;
+}
+.preface .center {
+  margin:auto;
+}
+
+.section figure {
+  max-width:100%;
+}
+
+.section figure img {
+  max-width:100%;
 }

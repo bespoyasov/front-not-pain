@@ -1,0 +1,31 @@
+.center {
+  max-width: 1400px;
+  margin:0 auto;
+  padding:0 1.5rem;
+  width:100%;
+}
+
+.center--narrow {
+  max-width:700px;
+}
+
+.grid {
+  position: relative;
+  display: flex;
+}
+
+.column {
+  flex: 1;
+}
+
+.column--left {
+  max-width: 200px;
+  width:25%;
+}
+
+.column--right {
+  max-width: 240px;
+  width:28%;
+  padding-left:60px;
+  padding-top:2.9rem;
+}
