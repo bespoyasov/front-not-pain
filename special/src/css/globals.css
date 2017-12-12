@@ -1,0 +1,60 @@
+* {
+  box-sizing: border-box;
+  margin:0;
+  padding:0;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: none;
+  font-family: var(--font-serif);
+  line-height: 1.4em;
+  font-size: 18px;
+  color:var(--black);
+  background: white;
+  min-width:320px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-sans-serif);
+}
+
+h1 {
+  font-size: 2.45rem;
+  line-height:2.8rem;
+  margin-bottom: 0.6rem;
+}
+
+h2 {
+  font-size: 1.75rem;
+  line-height: 2.05rem;
+  margin-bottom: 0.6rem;
+}
+
+blockquote {
+  margin:0;
+  padding:0.3rem 1rem 0.3rem;
+  display:block;
+}
+
+figcaption {
+  font-style: normal;
+}
+
+
+.is-visually-hidden {
+  position: absolute !important;
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+  padding:0 !important;
+  border:0 !important;
+  height: 1px !important;
+  width: 1px !important;
+  overflow: hidden;
+}
+
+.smallcaps {
+  font-size: 0.875em;
+  letter-spacing: 0.15em;
+  margin-right: -0.15em;
+}
