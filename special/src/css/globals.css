@@ -39,6 +39,18 @@ blockquote {
 
 figcaption {
   font-style: normal;
+  font-size: 0.8rem;
+  color:var(--grey-5);
+  text-align: center;
+}
+
+p {
+  margin-top:1rem;
+}
+
+h2 + p,
+h1 + p {
+  margin-top: 0;
 }
 
 
@@ -57,4 +69,27 @@ figcaption {
   font-size: 0.875em;
   letter-spacing: 0.15em;
   margin-right: -0.15em;
+}
+
+.center {
+  max-width: 1100px;
+  margin:0 auto;
+  padding:0 3rem;
+  width:100%;
+}
+
+.relative {
+  position: relative;
+  padding-right:33%;
+}
+
+.relative figure {
+  position: absolute;
+  right:0;
+  top:0;
+  width:30%;
+}
+
+.relative img {
+  max-width: 100%;
 }
