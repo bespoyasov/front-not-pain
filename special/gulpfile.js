@@ -7,12 +7,15 @@ const include = require('gulp-include')
 const typograf = require('gulp-typograf')
 const htmlmin = require('gulp-htmlmin')
 
-// const clean = require('gulp-clean')
-// const imagemin = require('gulp-imagemin')
-// const concat = require('gulp-concat')
-// const importCss = require('gulp-import-css')
-// const cssnano = require('gulp-cssnano')
-// const imageResize = require('gulp-image-resize')
+const postcss = require('gulp-postcss')
+const autoprefixer = require('autoprefixer')
+
+const importCss = require('gulp-import-css')
+const cssnano = require('gulp-cssnano')
+
+const concat = require('gulp-concat')
+const babel = require('gulp-babel')
+const minify = require('gulp-minify')
 
 const watch = require('gulp-watch')
 const webserver = require('gulp-webserver')
@@ -65,6 +68,29 @@ gulp.task('html', function() {
     .pipe(gulp.dest('./build/'))
 })
 
+gulp.task('css', function() {
+  gulp.src('./src/css/main.css')
+    .pipe(importCss())
+    .pipe(rename('styles.css'))
+    .pipe(postcss([ autoprefixer() ]))
+    .pipe(cssnano())
+    .pipe(gulp.dest('./build/css/'))
+})
+
+
+gulp.task('js', function() {
+  gulp.src('./src/js/**/*.js')
+    .pipe(concat('scripts.js'))
+    .pipe(babel({
+      presets: ['es2015'],
+    }))
+    .pipe(minify())
+    .pipe(gulp.dest('./build/js/'))
+  
+  // gulp.src('./src/service-worker.js')
+  //   .pipe(gulp.dest('./build/'))
+})
+
 gulp.task('watch', function() {
   gulp.watch(WATCHERS.html, ['html'])
   gulp.watch(WATCHERS.styles, ['styles'])
@@ -89,4 +115,7 @@ gulp.task('stuff', function() {
 
   gulp.src('./dev/humans.txt')
     .pipe(gulp.dest('./build/'))
+
+  gulp.src('./dev/static/favicons/**/*')
+    .pipe(gulp.dest('./build/favicons/'))
 })
