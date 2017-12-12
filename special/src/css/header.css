@@ -2,14 +2,29 @@
   position: relative;
   height:100vh;
   min-height: 540px;
-  text-align: center;
-  background: url(../img/sad-frontender.jpg) no-repeat center / cover;
   display: flex;
+  
+  background-image: url(../img/sad-frontender.jpg);
+  background-color: var(--header-background);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  
+  color:white;
+  text-shadow: 1px 2px 2px var(--grey);
+  font-size: 2rem;
+  line-height:1.3em;
+  text-align: center;
 }
 
 .header h1 {
-  font-size: 5rem;
-  line-height: 1.2em;
-  padding: 20px 40px;
+  font-size: 6rem;
+  line-height: 1em;
+  margin-bottom: 2.5rem;
+}
+
+.header .content {
+  padding: 20px 50px;
   margin:auto;
+  font-family: var(--font-sans-serif);
 }
