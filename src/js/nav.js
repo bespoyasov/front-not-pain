@@ -79,6 +79,7 @@
   }
 
   function getElementOffsetTop(node) {
+    if (!node) return 0
     const rect = node.getBoundingClientRect()
     return rect.top + window.pageYOffset
   }
