@@ -92,7 +92,7 @@
   function updateHeightDependent() {
     limit = calcScrollLimit()
     offsets = updateSectionsOffsets()
-    pageMaxScroll = updatepageMaxScroll()
+    pageMaxScroll = updatePageMaxScroll()
   }
 
 
@@ -108,7 +108,7 @@
     return rect.top + window.pageYOffset
   }
 
-  function updatepageMaxScroll() {
+  function updatePageMaxScroll() {
     return document.body.offsetHeight - window.innerHeight
   }
 
