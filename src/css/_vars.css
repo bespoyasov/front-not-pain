@@ -16,6 +16,10 @@
   --purple: #542189;
   --blue: #0000fe;
   --red: #fb3347;
+
+  --purple-transparent: rgba(84, 33, 137, .1);
+  --blue-transparent: rgba(0, 0, 254, .1);
+  --red-transparent: rgba(251, 51, 71, .1);
  
   --white: white;
   --black: black;

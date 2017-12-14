@@ -19,11 +19,20 @@
   max-width:100%;
 }
 
-.tutorials {
+.section .is-inside {
+  margin-top:-1.6rem;
+}
+
+.tutorials,
+.caption {
   font-size: .8rem;
   line-height:1.2em;
 }
 
+.caption {
+  margin-bottom:.3rem;
+}
+
 .tutorials li {
-  margin-bottom:0.8rem;
+  margin-bottom:.6rem;
 }

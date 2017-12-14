@@ -60,6 +60,10 @@ blockquote:before {
   font-size: 3.2rem
 }
 
+figure {
+  margin-bottom: 2rem;
+}
+
 figcaption {
   font-style: normal;
   font-size: 0.8rem;
@@ -88,13 +92,15 @@ mark {
 a {
   color:var(--blue);
   text-decoration: none;
-  /* border-bottom:1px solid  */
+  border-bottom:1px solid var(--blue-transparent)
 }
 a:visited {
   color: var(--purple);
+  border-bottom-color:var(--purple-transparent)
 }
 a:hover {
   color:var(--red);
+  border-bottom-color:var(--red-transparent)
 }
 
 
