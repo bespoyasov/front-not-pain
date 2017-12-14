@@ -17,12 +17,12 @@
   const sections = document.getElementsByClassName('section')
   const nav = document.getElementById('nav')
   
-  let shouldWatchScroll = true,
-      limit = calcScrollLimit(),
-      offsets = updateSectionOffsets()
+  let shouldWatchScroll = true
+  let limit, offsets, pageMaxScroll
+  updateHeightDependent()
 
   window.addEventListener('scroll', handleScroll, passiveArg)
-  window.addEventListener('resize', handleWindowResize)
+  window.addEventListener('resize', updateHeightDependent)
   nav.addEventListener('click', handleLinkClick)
 
 
@@ -44,11 +44,6 @@
     const section = findCurrentSection()
     const id = section ? section.getAttribute('id') : null
     if (id) silentlyChangeHash(id)
-  }
-
-  function handleWindowResize() {
-    limit = calcScrollLimit()
-    offsets = updateSectionOffsets()
   }
 
 
@@ -93,10 +88,24 @@
       getElementOffsetTop(node))
   }
 
+  function updatepageMaxScroll() {
+    return document.body.offsetHeight - window.innerHeight
+  }
+
   function silentlyChangeHash(newHash) {
     const sct = window.scrollY
     location.hash = newHash
-    if (sct > 0) window.scrollTo(0, sct)
+    
+    // let overscroll in mac os
+    if (sct > 0 && sct < pageMaxScroll) {
+      window.scrollTo(0, sct)
+    }
+  }
+
+  function updateHeightDependent() {
+    limit = calcScrollLimit()
+    offsets = updateSectionOffsets()
+    pageMaxScroll = updatepageMaxScroll()
   }
 
 }())
