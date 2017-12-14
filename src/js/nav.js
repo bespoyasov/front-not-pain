@@ -113,6 +113,7 @@
   }
 
   function silentlyChangeHash(newHash) {
+    // to change hash without page jump
     const sct = window.scrollY
     location.hash = newHash
     
