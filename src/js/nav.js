@@ -10,9 +10,12 @@
 
 
   // nodes and listeners
+  const sections = document.getElementsByClassName('section')
   const nav = document.getElementById('nav')
-  let limit = calcScrollLimit(),
-      shouldWatchScroll = true
+  
+  let shouldWatchScroll = true,
+      limit = calcScrollLimit(),
+      offsets = updateSectionOffsets()
 
   window.addEventListener('scroll', handleScroll, passiveArg)
   window.addEventListener('resize', handleWindowResize)
@@ -34,18 +37,21 @@
     else nav.classList.remove('is-fixed')
 
     if (!shouldWatchScroll) return
-    // detect section change ...
+    const section = findCurrentSection()
+    const id = section ? section.getAttribute('id') : null
+    if (id) silentlyChangeHash(id)
   }
 
   function handleWindowResize() {
     limit = calcScrollLimit()
+    offsets = updateSectionOffsets()
   }
 
 
   // main logic
   function scrollToSection(sectionName) {
     const section = document.getElementById(sectionName)
-    if (!sectionName || !section) return
+    if (!section || !sectionName) return
 
     shouldWatchScroll = false
     window.scrollTo({ 
@@ -59,6 +65,12 @@
     }, 500)
   }
 
+  function findCurrentSection() {
+    const sct = window.scrollY
+    return offsets.reduce((section, offset, index) =>
+      offset <= sct ? sections[index] : section, null)
+  }
+
 
   // helpers
   function calcScrollLimit() {
@@ -70,4 +82,16 @@
     const rect = node.getBoundingClientRect()
     return rect.top + window.pageYOffset
   }
+
+  function updateSectionOffsets() {
+    return Array.from(sections).map(node => 
+      getElementOffsetTop(node))
+  }
+
+  function silentlyChangeHash(newHash) {
+    const sct = window.scrollY
+    location.hash = newHash
+    if (sct > 0) window.scrollTo(0, sct)
+  }
+
 }())
