@@ -1,3 +1,7 @@
+/**
+ * TODO: 
+ * - add active link change in nav
+ */
 (function(){
   // passive event polyfill
   let passiveArg = false
