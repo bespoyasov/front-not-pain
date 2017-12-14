@@ -29,3 +29,9 @@
 .nav a {
   text-decoration: none;
 }
+
+.nav a.is-active {
+  border:0;
+  color:black;
+  cursor: default;
+}

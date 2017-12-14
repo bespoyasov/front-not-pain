@@ -1,7 +1,3 @@
-/**
- * TODO: 
- * - add active link change in nav
- */
 (function(){
   // passive event polyfill
   let passiveArg = false
@@ -9,12 +5,18 @@
     const opts = Object.defineProperty({}, 'passive', {
       get: () => {passiveArg = {passive: true}}
     })
-    window.addEventListener("test", null, opts)
+    window.addEventListener('test', null, opts)
   } catch (e) {}
 
 
   // nodes and listeners
-  const sections = document.getElementsByClassName('section')
+  const SECTIONS_CLSNM = 'section'
+  const FIXED_CLSNM = 'is-fixed'
+  const ACTIVE_LINK_CLSNM = 'is-active'
+  const ACTIVE_LINK_QUERY = `.nav a.${ACTIVE_LINK_CLSNM}`
+  const LIMIT_SECTION_ID = 'pain'
+
+  const sections = document.getElementsByClassName(SECTIONS_CLSNM)
   const nav = document.getElementById('nav')
   
   let shouldWatchScroll = true
@@ -37,13 +39,16 @@
   }
 
   function handleScroll() {
-    if (window.scrollY >= limit) nav.classList.add('is-fixed')
-    else nav.classList.remove('is-fixed')
+    if (window.scrollY >= limit) nav.classList.add(FIXED_CLSNM)
+    else nav.classList.remove(FIXED_CLSNM)
 
     if (!shouldWatchScroll) return
     const section = findCurrentSection()
     const id = section ? section.getAttribute('id') : null
-    if (id) silentlyChangeHash(id)
+    
+    if (!id) return
+    silentlyChangeHash(id)
+    updateActiveLink(id)
   }
 
 
@@ -53,6 +58,8 @@
     if (!section || !sectionName) return
 
     shouldWatchScroll = false
+    updateActiveLink(sectionName)
+    
     window.scrollTo({ 
       top: getElementOffsetTop(section), 
       behavior: 'smooth' 
@@ -70,10 +77,28 @@
       offset <= sct ? sections[index] : section, null)
   }
 
+  function updateActiveLink(id) {
+    const active = document.querySelector(ACTIVE_LINK_QUERY)
+    const newActive = document.querySelector(`[href="#${id}"]`)
+    active && active.classList.remove(ACTIVE_LINK_CLSNM)
+    newActive && newActive.classList.add(ACTIVE_LINK_CLSNM)
+  }
+
+  function updateSectionsOffsets() {
+    return Array.from(sections).map(node => 
+      getElementOffsetTop(node))
+  }
+
+  function updateHeightDependent() {
+    limit = calcScrollLimit()
+    offsets = updateSectionsOffsets()
+    pageMaxScroll = updatepageMaxScroll()
+  }
+
 
   // helpers
   function calcScrollLimit() {
-    const node = document.getElementById('pain')
+    const node = document.getElementById(LIMIT_SECTION_ID)
     return getElementOffsetTop(node)
   }
 
@@ -81,11 +106,6 @@
     if (!node) return 0
     const rect = node.getBoundingClientRect()
     return rect.top + window.pageYOffset
-  }
-
-  function updateSectionOffsets() {
-    return Array.from(sections).map(node => 
-      getElementOffsetTop(node))
   }
 
   function updatepageMaxScroll() {
@@ -100,12 +120,6 @@
     if (sct > 0 && sct < pageMaxScroll) {
       window.scrollTo(0, sct)
     }
-  }
-
-  function updateHeightDependent() {
-    limit = calcScrollLimit()
-    offsets = updateSectionOffsets()
-    pageMaxScroll = updatepageMaxScroll()
   }
 
 }())
