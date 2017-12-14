@@ -18,3 +18,12 @@
 .section figure img {
   max-width:100%;
 }
+
+.tutorials {
+  font-size: .8rem;
+  line-height:1.2em;
+}
+
+.tutorials li {
+  margin-bottom:0.8rem;
+}
