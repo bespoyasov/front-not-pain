@@ -114,10 +114,10 @@
 
   function silentlyChangeHash(newHash) {
     // to change hash without page jump
+    // and let overscroll at boundaries in mac os
     const sct = window.scrollY
     location.hash = newHash
     
-    // let overscroll at boundaries in mac os
     if (sct > 0 && sct < pageMaxScroll) {
       window.scrollTo(0, sct)
     }

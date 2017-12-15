@@ -36,3 +36,7 @@
 .tutorials li {
   margin-bottom:.6rem;
 }
+
+.tutorials + .caption {
+  margin-top: 1.5rem
+}
