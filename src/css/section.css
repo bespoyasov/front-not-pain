@@ -24,7 +24,27 @@
 }
 
 .section-link {
-
+  font-size: 0.6em;
+  display: inline-block;
+  vertical-align: top;
+  border: 0;
+  margin: 0 0 0 .1rem;
+  padding: 0 0 0 .1rem;
+  width: 2rem;
+  height: 2rem;
+  line-height: 2.3rem;
+  text-align: center;
+  border-radius: 50%;
+  box-sizing: border-box;
+  opacity: 0;
+  transition: opacity 0.1s, background 0.2s;
+  will-change: opacity, background;
+}
+h2:hover .section-link {
+  opacity: 1;
+}
+.section-link:hover {
+  background: var(--light-brown);
 }
 
 .tutorials,
