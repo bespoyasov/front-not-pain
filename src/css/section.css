@@ -23,6 +23,10 @@
   margin-top:-1.6rem;
 }
 
+.section-link {
+
+}
+
 .tutorials,
 .caption {
   font-size: .8rem;
@@ -31,6 +35,7 @@
 
 .caption {
   margin-bottom:.3rem;
+  font-weight: 700;
 }
 
 .tutorials li {
@@ -38,5 +43,5 @@
 }
 
 .tutorials + .caption {
-  margin-top: 1.5rem
+  margin-top: 2rem
 }

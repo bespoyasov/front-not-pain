@@ -121,3 +121,7 @@ a:hover {
   margin-right: -0.15em;
   text-transform: uppercase;
 }
+
+.emoji {
+  margin-left:0.2em;
+}
