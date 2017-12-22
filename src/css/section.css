@@ -3,6 +3,10 @@
   display:flex;
 }
 
+.section.has-no-padding {
+  padding-top:0
+}
+
 .preface {
   padding:5rem 0 3rem;
   min-height:100vh;
@@ -61,7 +65,29 @@ h2:hover .section-link {
 .tutorials li {
   margin-bottom:.6rem;
 }
+.tutorials li.list-section {
+  padding-top:0.4rem;
+}
 
 .tutorials + .caption {
   margin-top: 2rem
+}
+
+.insert {
+  padding:1.8rem 0;
+}
+.insert:last-child {
+  padding-bottom:0;
+}
+
+.insert .column {
+  width:50%;
+  padding:0 1rem 0 1.5rem
+}
+
+.insert .caption,
+.insert .tutorials {
+  font-weight: normal;
+  font-size:0.9rem;
+  line-height:1.3rem;
 }

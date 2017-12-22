@@ -31,6 +31,11 @@ h2 {
   margin-bottom: 0.6rem;
 }
 
+h3 {
+  margin: 1rem 0 -1rem;
+  font-size: 1rem;
+}
+
 p {
   margin-top:1rem;
 }
