@@ -14,7 +14,7 @@
 - ⚡️
 - 🔗
 
-Заголовки:
+## Заголовки
 - <div class="caption">Книги <span class="emoji">📖</span></div>
 - <div class="caption">Статьи <span class="emoji">📝</span></div>
 - <div class="caption">Видео <span class="emoji">📹</span></div>
