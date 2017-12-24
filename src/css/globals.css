@@ -65,8 +65,18 @@ blockquote:before {
   font-size: 3.2rem
 }
 
+blockquote p:first-child {
+  margin-top:0;
+}
+
 figure {
   margin-bottom: 3rem;
+}
+
+figure.is-in-content,
+.section figure.is-in-content {
+  margin: 1.5rem auto 2rem;
+  max-width:500px;
 }
 
 figcaption {
