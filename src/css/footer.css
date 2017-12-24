@@ -27,3 +27,9 @@
 .footer .likely .likely__button {
   font-size:0.7rem;
 }
+
+@media (max-width:980px) {
+  .footer .likely .likely__button {
+    font-size:0.8rem;
+  }
+}

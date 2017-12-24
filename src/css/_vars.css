@@ -3,6 +3,9 @@
   --font-sans-serif: 'PT Sans', sans-serif;
 
   --nav-width: 200px;
+  --right-column-width: 28%;
+  --right-column-max-width: 240px;
+  --right-column-padding: 60px;
 
   --header-background: #526850;
 
@@ -23,4 +26,14 @@
  
   --white: white;
   --black: black;
+}
+
+
+@media (max-width:1060px) {
+  :root {
+    --nav-width: 160px;
+    --right-column-width: 25%;
+    --right-column-max-width: 220px;
+    --right-column-padding: 40px;
+  }
 }

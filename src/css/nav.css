@@ -35,3 +35,17 @@
   color:black;
   cursor: default;
 }
+
+
+@media (max-width:900px) {
+  .nav,
+  .nav.is-fixed {
+    position: relative;
+    max-height:100000vh;
+    height:auto;
+  }
+
+  .nav {
+    font-size: 1rem;
+  }
+}

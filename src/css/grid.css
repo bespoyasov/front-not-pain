@@ -12,6 +12,7 @@
 .grid {
   position: relative;
   display: flex;
+  flex-wrap: wrap;
 }
 
 .column {
@@ -24,12 +25,35 @@
 }
 
 .column--right {
-  max-width: 240px;
-  width:28%;
-  padding-left:60px;
+  max-width: var(--right-column-max-width);
+  width: var(--right-column-width);
+  padding-left: var(--right-column-padding);
   padding-top:2.9rem;
 }
 
 .column--third {
   width:33%;
+}
+
+
+
+@media (max-width:1060px) {
+  .center {
+    padding: 0 1.2rem;
+  }
+}
+
+
+@media (max-width:900px) {
+  .column--center, 
+  .column--left {
+    display:block;
+    position: relative;
+    width:100%;
+    max-width:100%;
+    flex:auto;
+  }
+  .column--left {
+    padding-left:1.2rem;
+  }
 }

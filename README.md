@@ -20,3 +20,11 @@
 - <div class="caption">Видео <span class="emoji">📹</span></div>
 - <div class="caption">Инструменты <span class="emoji">🔨</span></div>
 - <div class="caption">Что делать <span class="emoji">⚡️</span></div>
+
+## Брейкпоинты
+- 1060px;
+- 980px;
+- 900px;
+- 640px;
+- 540px;
+- 480px.
