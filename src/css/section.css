@@ -98,7 +98,19 @@ h2:hover .section-link {
 
 @media (max-width:1060px) {
   .caption,
-  .tutorials {
+  .tutorials,
+  .insert .caption,
+  .insert .tutorials {
     line-height: 1.4em
+  }
+}
+
+
+@media (max-width:800px) {
+  .caption,
+  .tutorials,
+  .insert .caption,
+  .insert .tutorials {
+    font-size:1rem;
   }
 }

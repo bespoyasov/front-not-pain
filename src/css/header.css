@@ -28,3 +28,11 @@
   margin:auto;
   font-family: var(--font-sans-serif);
 }
+
+
+@media (max-width:800px) {
+  .header h1 {
+    font-size:3.5rem;
+    margin-bottom: 1.2rem
+  }
+}
