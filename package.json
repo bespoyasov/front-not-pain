@@ -28,6 +28,7 @@
     "gulp-webserver": "^0.9.1"
   },
   "dependencies": {
+    "ilyabirman-likely": "^2.3.0",
     "smoothscroll-polyfill": "^0.4.0"
   }
 }

@@ -7,11 +7,13 @@
   padding-top:0
 }
 
-.preface {
+.preface,
+.afterwords {
   padding:5rem 0 3rem;
   min-height:100vh;
 }
-.preface .center {
+.preface .center,
+.afterwords .center {
   margin:auto;
 }
 

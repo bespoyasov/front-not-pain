@@ -94,6 +94,9 @@ gulp.task('js', function() {
   
   gulp.src('./src/service-worker.js')
     .pipe(gulp.dest('./build/'))
+  
+  gulp.src('./src/external/*.js')
+    .pipe(gulp.dest('./build/external/'))
 })
 
 gulp.task('watch', function() {

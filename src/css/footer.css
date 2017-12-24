@@ -1,0 +1,29 @@
+.footer-authors {
+  padding:50px 0 50px;
+  font-size: 0.9rem;
+  background: var(--light-brown);
+}
+
+.footer-socials {
+  text-align: center;
+  margin: auto;
+  display:block;
+  padding:20px 0 25px;
+}
+
+
+.footer .grid {
+  justify-content: space-between;
+}
+
+.footer .column {
+  width:auto;
+  flex:auto;
+}
+
+.footer .likely .likely__counter {
+  display:none;
+}
+.footer .likely .likely__button {
+  font-size:0.7rem;
+}

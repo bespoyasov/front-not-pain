@@ -29,3 +29,7 @@
   padding-left:60px;
   padding-top:2.9rem;
 }
+
+.column--third {
+  width:33%;
+}

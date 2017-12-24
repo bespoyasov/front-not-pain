@@ -15,12 +15,13 @@
   const ACTIVE_LINK_CLSNM = 'is-active'
   const ACTIVE_LINK_QUERY = `.nav a.${ACTIVE_LINK_CLSNM}`
   const LIMIT_SECTION_ID = 'pain'
+  const BOTTOM_LIMIT_SECTION_ID = 'afterwords'
 
   const sections = document.getElementsByClassName(SECTIONS_CLSNM)
   const nav = document.getElementById('nav')
   
   let shouldWatchScroll = true
-  let limit, offsets, pageMaxScroll
+  let limit, offsets, pageMaxScroll, bottomLimit
   updateHeightDependent()
 
   window.addEventListener('scroll', handleScroll, passiveArg)
@@ -39,7 +40,8 @@
   }
 
   function handleScroll() {
-    if (window.scrollY >= limit) nav.classList.add(FIXED_CLSNM)
+    const sct = window.scrollY
+    if (sct >= limit && sct < bottomLimit) nav.classList.add(FIXED_CLSNM)
     else nav.classList.remove(FIXED_CLSNM)
 
     if (!shouldWatchScroll) return
@@ -90,16 +92,23 @@
   }
 
   function updateHeightDependent() {
-    limit = calcScrollLimit()
+    const limits = calcScrollLimits()
+    limit = limits.limit 
+    bottomLimit = limits.bottomLimit
+
     offsets = updateSectionsOffsets()
     pageMaxScroll = updatePageMaxScroll()
   }
 
 
   // helpers
-  function calcScrollLimit() {
-    const node = document.getElementById(LIMIT_SECTION_ID)
-    return getElementOffsetTop(node)
+  function calcScrollLimits() {
+    const topNode = document.getElementById(LIMIT_SECTION_ID)
+    const bottomNode = document.getElementById(BOTTOM_LIMIT_SECTION_ID)
+    return {
+      limit: getElementOffsetTop(topNode),
+      bottomLimit: getElementOffsetTop(bottomNode) - (window.innerHeight / 2),
+    }
   }
 
   function getElementOffsetTop(node) {
