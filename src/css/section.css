@@ -62,6 +62,7 @@ h2:hover .section-link {
 .caption {
   margin-bottom:.3rem;
   font-weight: 700;
+  font-family: var(--font-sans-serif)
 }
 
 .tutorials li {
@@ -89,7 +90,7 @@ h2:hover .section-link {
 
 .insert .caption,
 .insert .tutorials {
-  font-weight: normal;
+  /* font-weight: normal; */
   font-size:0.9rem;
   line-height:1.3rem;
 }
@@ -152,7 +153,7 @@ h2:hover .section-link {
   .section {
     padding-bottom:0;
   }
-  
+
   .insert .column {
     width:100%;
     padding:0;
@@ -160,5 +161,9 @@ h2:hover .section-link {
 
   .insert .column + .column {
     margin-top:1.5rem;
+  }
+
+  .tutorials + .caption {
+    margin-top: 1.5rem
   }
 }
