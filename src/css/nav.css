@@ -30,19 +30,24 @@
   text-decoration: none;
 }
 
-.nav a.is-active {
-  border:0;
-  color:black;
-  cursor: default;
+
+@media (min-width:901px) {
+  .nav a.is-active {
+    border:0;
+    color:black;
+    cursor: default;
+  }
 }
 
 
 @media (max-width:900px) {
   .nav,
   .nav.is-fixed {
+    padding-top:0;
     position: relative;
     max-height:100000vh;
     height:auto;
+    width:100%;
   }
 
   .nav {

@@ -36,3 +36,16 @@
     margin-bottom: 1.2rem
   }
 }
+
+@media (max-width:640px) {
+  .header {
+    font-size: 1.2rem;
+    line-height: 1.3em;
+  }
+  .header h1 {
+    font-size: 2.2rem;
+  }
+  .header .content {
+    padding:0 20px;
+  }
+}

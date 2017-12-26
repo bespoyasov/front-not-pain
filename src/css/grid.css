@@ -72,4 +72,9 @@
     max-width:100%;
     flex:auto;
   }
+
+  .column--right {
+    padding-left:0;
+    padding-top:1.5rem;
+  }
 }

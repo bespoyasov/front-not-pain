@@ -92,7 +92,7 @@ figcaption {
 mark {
   display: block;
   margin:0;
-  padding: 1.8rem 3rem 1.5rem;
+  padding: 1.8rem 0 1.5rem 3rem;
   font-size: 1.5rem;
   line-height: 1.3em;
   background: none;
@@ -144,5 +144,36 @@ a:hover {
 @media (max-width:980px) {
   html {
     font-size:16px;
+  }
+}
+
+
+@media (max-width:800px) {
+  mark {
+    padding: 1.5rem 0 1.5rem 2rem;
+  }
+}
+
+
+@media (max-width:640px) {
+  html {
+    font-size:14px;
+  }
+
+  blockquote {
+    padding: 1.1rem 1rem 1.3rem 2rem;
+    margin: 1.4rem 0;
+  }
+
+  blockquote:before {
+    left: 0.6rem;
+    top: .8rem;
+    font-size: 2.2rem;
+  }
+
+  mark {
+    font-size: 1.3rem;
+    line-height: 1.3em;
+    padding: 1.3rem 0 1.3rem 2rem
   }
 }

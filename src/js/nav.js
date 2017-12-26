@@ -16,16 +16,17 @@
   const ACTIVE_LINK_QUERY = `.nav a.${ACTIVE_LINK_CLSNM}`
   const LIMIT_SECTION_ID = 'pain'
   const BOTTOM_LIMIT_SECTION_ID = 'afterwords'
+  const MIN_PAGE_WIDTH = 801
 
   const sections = document.getElementsByClassName(SECTIONS_CLSNM)
   const nav = document.getElementById('nav')
   
   let shouldWatchScroll = true
-  let limit, offsets, pageMaxScroll, bottomLimit
-  updateHeightDependent()
+  let limit, offsets, pageMaxScroll, bottomLimit, pageWidth
+  updateSizeDependent()
 
   window.addEventListener('scroll', handleScroll, passiveArg)
-  window.addEventListener('resize', updateHeightDependent)
+  window.addEventListener('resize', updateSizeDependent)
   nav.addEventListener('click', handleLinkClick)
 
 
@@ -40,6 +41,8 @@
   }
 
   function handleScroll() {
+    if (pageWidth < MIN_PAGE_WIDTH) return
+
     const sct = window.scrollY
     if (sct >= limit && sct < bottomLimit) nav.classList.add(FIXED_CLSNM)
     else nav.classList.remove(FIXED_CLSNM)
@@ -91,13 +94,15 @@
       getElementOffsetTop(node))
   }
 
-  function updateHeightDependent() {
+  function updateSizeDependent() {
     const limits = calcScrollLimits()
     limit = limits.limit 
     bottomLimit = limits.bottomLimit
 
     offsets = updateSectionsOffsets()
     pageMaxScroll = updatePageMaxScroll()
+
+    pageWidth = window.innerWidth
   }
 
 
@@ -122,6 +127,8 @@
   }
 
   function silentlyChangeHash(newHash) {
+    if (pageWidth < MIN_PAGE_WIDTH) return
+    
     // to change hash without page jump
     const sct = window.scrollY
     location.hash = newHash

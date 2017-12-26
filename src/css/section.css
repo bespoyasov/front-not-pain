@@ -107,10 +107,58 @@ h2:hover .section-link {
 
 
 @media (max-width:800px) {
+  .section {
+    padding-top:2rem;
+  }
+
+  .section .is-inside {
+    margin-top:0;
+  }
+
+  .section-link {
+    opacity: 1;
+  }
+
   .caption,
   .tutorials,
   .insert .caption,
   .insert .tutorials {
     font-size:1rem;
+    margin-left:2rem;
+  }
+
+  .insert .caption {
+    font-weight: 700;
+  }
+
+  .insert .column {
+    padding-left:0;
+    padding-bottom:0;
+    margin-bottom:0;
+  }
+
+  aside figure {
+    display:none;
+  }
+
+  .preface,
+  .afterwords {
+    min-height:400px;
+  }
+}
+
+
+@media (max-width:640px) {
+  .section {
+    padding-bottom:0;
+  }
+  
+  .insert .column {
+    width:100%;
+    padding:0;
+  }
+
+  .insert .column + .column {
+    margin-top:1.5rem;
   }
 }

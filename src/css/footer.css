@@ -28,6 +28,11 @@
   font-size:0.7rem;
 }
 
+.footer ul,
+.footer li {
+  list-style: none;
+}
+
 @media (max-width:980px) {
   .footer .likely .likely__button {
     font-size:0.8rem;
