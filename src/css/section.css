@@ -107,6 +107,13 @@ h2:hover .section-link {
 }
 
 
+@media (max-width:900px) {
+  .section-link {
+    opacity: 1;
+  }
+}
+
+
 @media (max-width:800px) {
   .section {
     padding-top:2rem;
@@ -114,10 +121,6 @@ h2:hover .section-link {
 
   .section .is-inside {
     margin-top:0;
-  }
-
-  .section-link {
-    opacity: 1;
   }
 
   .caption,
