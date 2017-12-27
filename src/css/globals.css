@@ -148,6 +148,10 @@ a:hover {
   margin-left:0.2em;
 }
 
+.force-full-width {
+  width:100%;
+}
+
 @media (max-width:980px) {
   html {
     font-size:16px;
