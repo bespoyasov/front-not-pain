@@ -59,7 +59,7 @@ const typografRules = [{
 
 // tasks
 gulp.task('default', ['html', 'css', 'js', 'images', 'watch', 'webserver'])
-gulp.task('build', ['html', 'css', 'js', 'images', 'stuff', 'clean'])
+gulp.task('build', ['html', 'css', 'js', 'images', 'stuff'])
 
 gulp.task('html', function() {
   gulp.src('./src/index.html')
