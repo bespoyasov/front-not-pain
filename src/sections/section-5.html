@@ -22,9 +22,16 @@
 
       <aside class="column column--right">
         <figure>
-          <img 
-            src="./img/tools.jpg"
-            alt="Плохие инструменты не помогают в работе" />
+          <picture>
+            <source 
+              srcset="./img/tools@2x.webp 2x, ./img/tools.webp 1x" 
+              type="image/webp" />
+
+            <img 
+              srcset="./img/tools@2x.jpg 2x, ./img/tools.jpg 1x" 
+              src="./img/tools.jpg"
+              alt="Плохие инструменты не помогают в работе" />
+          </picture>
           <figcaption>Плохие инструменты не помогают в работе</figcaption>
         </figure>
 
