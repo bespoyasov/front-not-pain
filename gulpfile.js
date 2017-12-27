@@ -3,6 +3,7 @@ const gulp = require('gulp')
 const path = require('path')
 
 const rename = require('gulp-rename')
+const clean = require('gulp-clean')
 const include = require('gulp-include')
 const typograf = require('gulp-typograf')
 const htmlmin = require('gulp-htmlmin')
@@ -58,7 +59,7 @@ const typografRules = [{
 
 // tasks
 gulp.task('default', ['html', 'css', 'js', 'images', 'watch', 'webserver'])
-gulp.task('build', ['html', 'css', 'js', 'images', 'stuff'])
+gulp.task('build', ['html', 'css', 'js', 'images', 'stuff', 'clean'])
 
 gulp.task('html', function() {
   gulp.src('./src/index.html')
@@ -114,14 +115,17 @@ gulp.task('webserver', function() {
     }))
 })
 
+gulp.task('clean', function () {
+  gulp.src('./src/static/img/tmp', {read: false})
+    .pipe(clean())
+})
+
+
 gulp.task('stuff', function() {
   gulp.src('./src/.htaccess')
     .pipe(gulp.dest('./build/'))
   
-  gulp.src('./src/robots.txt')
-    .pipe(gulp.dest('./build/'))
-
-  gulp.src('./src/humans.txt')
+  gulp.src('./src/*.txt')
     .pipe(gulp.dest('./build/'))
 
   gulp.src('./src/static/favicons/**/*')
@@ -130,29 +134,35 @@ gulp.task('stuff', function() {
 
 
 gulp.task('resize', function() {
-  // gulp.src('./dev/static/img/**/*.{jpg,png}')
-  //   .pipe(imageResize({ percentage: 50 }))
-  //   .pipe(rename(function(path) { path.basename += '-1x' }))
-  //   .pipe(gulp.dest('./dev/tmp/img/projects/previews_xl/'))
+  gulp.src('./src/static/img/resize/**/*.{jpg,png}')
+    .pipe(imageResize({ width: 200 }))
+    .pipe(gulp.dest('./src/static/img/tmp/'))
+})
+
+gulp.task('resize-retina', function() {
+  gulp.src('./src/static/img/resize/**/*.{jpg,png}')
+    .pipe(imageResize({ width: 400 }))
+    .pipe(rename(function(path) { path.basename += '@2x' }))
+    .pipe(gulp.dest('./src/static/img/tmp/'))
 })
 
 
-gulp.task('images', ['resize'], function() {
-  // move
-  gulp.src('./src/static/img/**/*.svg')
-    .pipe(gulp.dest('./build/img/'))
-
+gulp.task('images', ['resize', 'resize-retina'], function() {
   // minify
-  gulp.src('./src/static/img/**/*.jpg')
+  gulp.src('./src/static/img/*.{jpg,png}')
     .pipe(imagemin())
     .pipe(gulp.dest('./build/img/'))
 
-  gulp.src('./src/static/img/**/*.png')
+  gulp.src('./src/static/img/tmp/*.{jpg,png}')
     .pipe(imagemin())
     .pipe(gulp.dest('./build/img/'))
   
   // convert to webp
-  gulp.src('./src/static/img/**/*.{jpg,png}')
+  gulp.src('./src/static/img/*.{jpg,png}')
+    .pipe(webp())
+    .pipe(gulp.dest('./build/img/'))
+
+  gulp.src('./src/static/img/tmp/*.{jpg,png}')
     .pipe(webp())
     .pipe(gulp.dest('./build/img/'))
 })

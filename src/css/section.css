@@ -107,6 +107,13 @@ h2:hover .section-link {
 }
 
 
+@media (min-width:901px) {
+  .section figure.is-mobile-content {
+    display:none;
+  }
+}
+
+
 @media (max-width:900px) {
   .section-link {
     opacity: 1;
@@ -145,9 +152,10 @@ h2:hover .section-link {
     display:none;
   }
 
-  .preface,
-  .afterwords {
-    min-height:400px;
+  .section.preface,
+  .section.afterwords {
+    min-height: 200px;
+    padding:4rem 0 3rem
   }
 }
 

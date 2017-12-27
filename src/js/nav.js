@@ -15,6 +15,7 @@
   const ACTIVE_LINK_CLSNM = 'is-active'
   const ACTIVE_LINK_QUERY = `.nav a.${ACTIVE_LINK_CLSNM}`
   const LIMIT_SECTION_ID = 'pain'
+  const NAV_ID = 'nav'
   const BOTTOM_LIMIT_SECTION_ID = 'afterwords'
   const MIN_PAGE_WIDTH = 801
 
@@ -85,8 +86,14 @@
   function updateActiveLink(id) {
     const active = document.querySelector(ACTIVE_LINK_QUERY)
     const newActive = document.querySelector(`[href="#${id}"]`)
+    if (active === newActive) return
+
     active && active.classList.remove(ACTIVE_LINK_CLSNM)
     newActive && newActive.classList.add(ACTIVE_LINK_CLSNM)
+
+    // const linkTop = newActive ? newActive.offsetTop || 0 : 0
+    // const menu = document.getElementById(NAV_ID)
+    // menu.scrollTo({ top: linkTop - 10, behavior: 'smooth' })
   }
 
   function updateSectionsOffsets() {

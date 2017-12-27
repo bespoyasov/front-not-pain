@@ -74,9 +74,16 @@ figure {
 }
 
 figure.is-in-content,
-.section figure.is-in-content {
+.section figure.is-in-content,
+figure.is-mobile-content,
+.section figure.is-mobile-content {
   margin: 1.5rem auto 2rem;
   max-width:500px;
+}
+
+figure.is-mobile-content,
+.section figure.is-mobile-content {
+  max-width:200px;
 }
 
 figcaption {
@@ -151,6 +158,10 @@ a:hover {
 @media (max-width:800px) {
   mark {
     padding: 1.5rem 0 1.5rem 2rem;
+  }
+
+  figcaption {
+    font-size:0.9rem
   }
 }
 
