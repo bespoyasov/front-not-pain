@@ -100,10 +100,10 @@ mark {
   display: block;
   margin:0;
   padding: 1.8rem 0 1.5rem 3rem;
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   line-height: 1.3em;
   background: none;
-  font-weight: bold;
+  /* font-weight: bold; */
   font-family: var(--font-serif);
 }
 
