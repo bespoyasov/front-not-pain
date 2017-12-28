@@ -27,7 +27,6 @@ const watch = require('gulp-watch')
 const webserver = require('gulp-webserver')
 
 
-
 // constants
 const NON_BREAKING_HYPHEN = '‑'
 
@@ -35,11 +34,6 @@ const WATCHERS = {
   html: ['./src/**/*.html'],
   styles: ['./src/css/*.css'],
   scripts: ['./src/js/**/*.js'],
-  images: [
-    './src/static/img/**/*.svg', 
-    './src/static/img/**/*.png', 
-    './src/static/img/**/*.jpg'
-  ],
 }
 
 // typography
@@ -100,39 +94,6 @@ gulp.task('js', function() {
   return merge(main, external)
 })
 
-
-gulp.task('watch', function() {
-  gulp.watch(WATCHERS.html, ['html'])
-  gulp.watch(WATCHERS.styles, ['css'])
-  gulp.watch(WATCHERS.scripts, ['js'])
-})
-
-gulp.task('webserver', function() {
-  gulp.src('./build/')
-    .pipe(webserver({
-      livereload: {enable: true},
-      open: 'http://localhost:8001/',
-      port: 8001,
-    }))
-})
-
-gulp.task('clean', function () {
-  return gulp.src('./src/static/img/tmp', {read: false})
-    .pipe(clean())
-})
-
-
-gulp.task('stuff', function() {
-  const htaccess = gulp.src('./src/.htaccess')
-    .pipe(gulp.dest('./build/'))
-  
-  const txt = gulp.src('./src/*.txt')
-    .pipe(gulp.dest('./build/'))
-
-  return merge(htaccess, txt)
-})
-
-
 gulp.task('images', ['resize'], function() {
   const minifyNormal = gulp.src('./src/static/img/*.{jpg,png}')
     .pipe(imagemin())
@@ -169,4 +130,35 @@ gulp.task('resize', function() {
     .pipe(gulp.dest('./src/static/img/tmp/'))
 
   return merge(sizeX1, sizeX2)
+})
+
+gulp.task('stuff', function() {
+  const htaccess = gulp.src('./src/.htaccess')
+    .pipe(gulp.dest('./build/'))
+  
+  const txt = gulp.src('./src/*.txt')
+    .pipe(gulp.dest('./build/'))
+
+  return merge(htaccess, txt)
+})
+
+
+gulp.task('watch', function() {
+  gulp.watch(WATCHERS.html, ['html'])
+  gulp.watch(WATCHERS.styles, ['css'])
+  gulp.watch(WATCHERS.scripts, ['js'])
+})
+
+gulp.task('webserver', function() {
+  gulp.src('./build/')
+    .pipe(webserver({
+      livereload: {enable: true},
+      open: 'http://localhost:8001/',
+      port: 8001,
+    }))
+})
+
+gulp.task('clean', function () {
+  return gulp.src('./src/static/img/tmp', {read: false})
+    .pipe(clean())
 })
