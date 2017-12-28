@@ -133,21 +133,21 @@ gulp.task('stuff', function() {
 })
 
 
-gulp.task('resize', function() {
-  gulp.src('./src/static/img/resize/**/*.{jpg,png}')
-    .pipe(imageResize({ width: 200 }))
+gulp.task('resize', ['resize-retina'], function() {
+  return gulp.src('./src/static/img/resize/**/*.{jpg,png}')
+    .pipe(imageResize({ width: 320 }))
     .pipe(gulp.dest('./src/static/img/tmp/'))
 })
 
 gulp.task('resize-retina', function() {
-  gulp.src('./src/static/img/resize/**/*.{jpg,png}')
-    .pipe(imageResize({ width: 400 }))
+  return gulp.src('./src/static/img/resize/**/*.{jpg,png}')
+    .pipe(imageResize({ width: 640 }))
     .pipe(rename(function(path) { path.basename += '@2x' }))
     .pipe(gulp.dest('./src/static/img/tmp/'))
 })
 
 
-gulp.task('images', ['resize', 'resize-retina'], function() {
+gulp.task('images', ['resize'], function() {
   // minify
   gulp.src('./src/static/img/*.{jpg,png}')
     .pipe(imagemin())

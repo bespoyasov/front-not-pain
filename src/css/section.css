@@ -123,7 +123,7 @@ h2:hover .section-link {
 
 @media (max-width:800px) {
   .section {
-    padding-top:2rem;
+    padding-top:2.5rem;
   }
 
   .section .is-inside {
@@ -138,6 +138,15 @@ h2:hover .section-link {
     margin-left:2rem;
   }
 
+  aside .tutorials:last-child {
+    margin-bottom: -0.4rem;
+  }
+
+  aside .caption:first-child,
+  aside figure + .caption {
+    margin-top: 1.5rem;
+  }
+
   .insert .caption {
     font-weight: 700;
   }
@@ -148,6 +157,10 @@ h2:hover .section-link {
     margin-bottom:0;
   }
 
+  .insert {
+    padding: 1.8rem 0 1rem;
+  }
+
   aside figure {
     display:none;
   }
@@ -155,7 +168,7 @@ h2:hover .section-link {
   .section.preface,
   .section.afterwords {
     min-height: 200px;
-    padding:4rem 0 3rem
+    padding: 4rem 0 2rem;
   }
 }
 

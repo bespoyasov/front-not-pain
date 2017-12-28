@@ -75,6 +75,7 @@
 
   .column--right {
     padding-left:0;
-    padding-top:1.5rem;
+    padding-top:0;
+    /* padding-top:1.5rem; */
   }
 }
