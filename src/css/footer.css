@@ -8,7 +8,7 @@
   text-align: center;
   margin: auto;
   display:block;
-  padding:20px 0 25px;
+  padding:20px 0 15px;
 }
 
 
@@ -33,9 +33,47 @@
   list-style: none;
 }
 
+
+.footer-links {
+  font-size:0.7rem;
+  padding:0 0 25px 0;
+  font-family: var(--font-sans-serif);
+}
+.footer-links ul {
+  display:flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.footer-links li {
+  padding:0 0.5rem;
+}
+.footer-links a {
+  color: var(--grey-5);
+  border-color: var(--grey-2);
+}
+.footer-links a:hover {
+  color:var(--black);
+  border-color: var(--grey-3);
+}
+
+
 @media (max-width:980px) {
   .footer .likely .likely__button {
     font-size:0.8rem;
+  }
+  .footer-links {
+    font-size: 0.8rem
+  }
+}
+
+
+@media (max-width:800px) {
+  .footer-links ul {
+    line-height: 1.6em;
+    text-align: center
+  }
+  .footer-links li {
+    width:100%;
   }
 }
 
