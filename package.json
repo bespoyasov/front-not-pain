@@ -26,7 +26,8 @@
     "gulp-typograf": "^3.1.0",
     "gulp-watch": "^4.3.11",
     "gulp-webp": "^2.3.0",
-    "gulp-webserver": "^0.9.1"
+    "gulp-webserver": "^0.9.1",
+    "merge-stream": "^1.0.1"
   },
   "dependencies": {
     "ilyabirman-likely": "^2.3.0",

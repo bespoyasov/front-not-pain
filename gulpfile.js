@@ -1,6 +1,7 @@
 // imports
 const gulp = require('gulp')
 const path = require('path')
+const merge = require('merge-stream')
 
 const rename = require('gulp-rename')
 const clean = require('gulp-clean')
@@ -41,8 +42,6 @@ const WATCHERS = {
   ],
 }
 
-
-
 // typography
 const typografRules = [{
   name: 'common/other/nonBreakingHyphen',
@@ -56,13 +55,16 @@ const typografRules = [{
 }]
 
 
-
 // tasks
 gulp.task('default', ['html', 'css', 'js', 'images', 'watch', 'webserver'])
-gulp.task('build', ['html', 'css', 'js', 'images', 'stuff'])
+
+gulp.task('build', ['html', 'css', 'js', 'images', 'stuff'], function() {
+  gulp.start('clean')
+})
+
 
 gulp.task('html', function() {
-  gulp.src('./src/index.html')
+  return gulp.src('./src/index.html')
     .pipe(include())
       .on('error', console.log)
     .pipe(typograf({ 
@@ -76,16 +78,15 @@ gulp.task('html', function() {
 })
 
 gulp.task('css', function() {
-  gulp.src('./src/css/style.css')
+  return gulp.src('./src/css/style.css')
     .pipe(importCss())
     .pipe(postcss([ autoprefixer() ]))
     .pipe(cssnano())
     .pipe(gulp.dest('./build/css/'))
 })
 
-
 gulp.task('js', function() {
-  gulp.src('./src/js/**/*.js')
+  const main = gulp.src('./src/js/**/*.js')
     .pipe(concat('scripts.js'))
     .pipe(babel({
       presets: ['es2015'],
@@ -93,12 +94,12 @@ gulp.task('js', function() {
     .pipe(minify())
     .pipe(gulp.dest('./build/js/'))
   
-  gulp.src('./src/service-worker.js')
-    .pipe(gulp.dest('./build/'))
-  
-  gulp.src('./src/external/*.js')
+  const external = gulp.src('./src/external/*.js')
     .pipe(gulp.dest('./build/external/'))
+
+  return merge(main, external)
 })
+
 
 gulp.task('watch', function() {
   gulp.watch(WATCHERS.html, ['html'])
@@ -116,53 +117,56 @@ gulp.task('webserver', function() {
 })
 
 gulp.task('clean', function () {
-  gulp.src('./src/static/img/tmp', {read: false})
+  return gulp.src('./src/static/img/tmp', {read: false})
     .pipe(clean())
 })
 
 
 gulp.task('stuff', function() {
-  gulp.src('./src/.htaccess')
+  const htaccess = gulp.src('./src/.htaccess')
     .pipe(gulp.dest('./build/'))
   
-  gulp.src('./src/*.txt')
+  const txt = gulp.src('./src/*.txt')
     .pipe(gulp.dest('./build/'))
 
-  gulp.src('./src/static/favicons/**/*')
-    .pipe(gulp.dest('./build/favicons/'))
-})
-
-
-gulp.task('resize', ['resize-retina'], function() {
-  return gulp.src('./src/static/img/resize/**/*.{jpg,png}')
-    .pipe(imageResize({ width: 320 }))
-    .pipe(gulp.dest('./src/static/img/tmp/'))
-})
-
-gulp.task('resize-retina', function() {
-  return gulp.src('./src/static/img/resize/**/*.{jpg,png}')
-    .pipe(imageResize({ width: 640 }))
-    .pipe(rename(function(path) { path.basename += '@2x' }))
-    .pipe(gulp.dest('./src/static/img/tmp/'))
+  return merge(htaccess, txt)
 })
 
 
 gulp.task('images', ['resize'], function() {
-  // minify
-  gulp.src('./src/static/img/*.{jpg,png}')
+  const minifyNormal = gulp.src('./src/static/img/*.{jpg,png}')
     .pipe(imagemin())
     .pipe(gulp.dest('./build/img/'))
 
-  gulp.src('./src/static/img/tmp/*.{jpg,png}')
+  const minifyAdaptive = gulp.src('./src/static/img/tmp/*.{jpg,png}')
     .pipe(imagemin())
     .pipe(gulp.dest('./build/img/'))
   
-  // convert to webp
-  gulp.src('./src/static/img/*.{jpg,png}')
+  const convertNormal = gulp.src('./src/static/img/*.{jpg,png}')
     .pipe(webp())
     .pipe(gulp.dest('./build/img/'))
 
-  gulp.src('./src/static/img/tmp/*.{jpg,png}')
+  const convertAdaptive = gulp.src('./src/static/img/tmp/*.{jpg,png}')
     .pipe(webp())
     .pipe(gulp.dest('./build/img/'))
+
+  return merge(
+    minifyNormal,
+    minifyAdaptive,
+    convertNormal,
+    convertAdaptive
+  )
+})
+
+gulp.task('resize', function() {
+  const sizeX1 = gulp.src('./src/static/img/resize/**/*.{jpg,png}')
+    .pipe(imageResize({ width: 320 }))
+    .pipe(gulp.dest('./src/static/img/tmp/'))
+
+  const sizeX2 = gulp.src('./src/static/img/resize/**/*.{jpg,png}')
+    .pipe(imageResize({ width: 640 }))
+    .pipe(rename(function(path) { path.basename += '@2x' }))
+    .pipe(gulp.dest('./src/static/img/tmp/'))
+
+  return merge(sizeX1, sizeX2)
 })
