@@ -3,3 +3,4 @@ Disallow: /css
 Disallow: /js
 Disallow: /img
 Disallow: /favicons
+Disallow: /external
