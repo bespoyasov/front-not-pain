@@ -5,15 +5,15 @@
   --nav-width: 200px;
   --right-column-width: 28%;
   --right-column-max-width: 240px;
-  --right-column-padding: 60px;
-
-  --header-background: #526850;
+  --right-column-padding: 60px;  
 
   --grey-1: rgba(0,0,0,.1);
   --grey-2: rgba(0,0,0,.2);
   --grey-3: rgba(0,0,0,.3);
   --grey-5: rgba(0,0,0,.5);
 
+  --header-background: #526850;
+  
   --light-brown: #f7f5ec;
   --brown: #887744;
   --purple: #542189;
