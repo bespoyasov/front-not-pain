@@ -90,10 +90,6 @@
 
     active && active.classList.remove(ACTIVE_LINK_CLSNM)
     newActive && newActive.classList.add(ACTIVE_LINK_CLSNM)
-
-    // const linkTop = newActive ? newActive.offsetTop || 0 : 0
-    // const menu = document.getElementById(NAV_ID)
-    // menu.scrollTo({ top: linkTop - 10, behavior: 'smooth' })
   }
 
   function updateSectionsOffsets() {
