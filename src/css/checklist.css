@@ -10,6 +10,8 @@
 
 .checklist .column {
   padding:0 25px;
+  width:33%;
+  margin:0;
 }
 
 .checklist .column:first-child {
@@ -39,6 +41,25 @@
   position: absolute;
   left:0;
   top:6px;
+}
+
+
+
+@media (max-width:800px) {
+  .checklist .column {
+    width:100%;
+    margin:0;
+    padding:0 0 1.5rem;
+  }
+  .checklist .caption {
+    margin-left:0;
+  }
+  .checklist input {
+    top:3px;
+  }
+  .checklist .grid {
+    padding-top:25px;
+  }
 }
 
 
