@@ -103,7 +103,6 @@ mark {
   font-size: 1.6rem;
   line-height: 1.3em;
   background: none;
-  /* font-weight: bold; */
   font-family: var(--font-serif);
 }
 

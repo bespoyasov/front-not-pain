@@ -90,9 +90,40 @@ h2:hover .section-link {
 
 .insert .caption,
 .insert .tutorials {
-  /* font-weight: normal; */
   font-size:0.9rem;
   line-height:1.3rem;
+}
+
+
+.section .tableContainer {
+  margin: 0.3rem 0 1.5rem;
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+
+.section table {
+  padding:0;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  line-height:1.3em;
+  width:100%;
+  min-width:500px;
+}
+
+.section td {
+  padding: .5rem 1rem .6rem;
+  margin:0;
+  border:0;
+  vertical-align: top;
+  border-bottom:1px solid #e8e8e8;
+  border-right:1px solid #e8e8e8;
+}
+
+.section td:last-child {
+  border-right:0;
+}
+.section tr:last-child td {
+  border-bottom:0;
 }
 
 
@@ -107,7 +138,7 @@ h2:hover .section-link {
 }
 
 
-@media (min-width:901px) {
+@media (min-width:801px) {
   .section figure.is-mobile-content {
     display:none;
   }
@@ -189,5 +220,16 @@ h2:hover .section-link {
 
   .tutorials + .caption {
     margin-top: 1.5rem
+  }
+}
+
+
+@media (max-width:540px) {
+  .section .tableContainer {
+    margin-left:-1.2rem;
+    margin-right:-1.2rem;
+  }
+  .section td {
+    padding-left: 1.2rem
   }
 }
