@@ -58,7 +58,7 @@ gulp.task('build', ['html', 'css', 'js', 'images', 'stuff'], function() {
 
 
 gulp.task('html', function() {
-  return gulp.src('./src/index.html')
+  return gulp.src('./src/*.html')
     .pipe(include())
       .on('error', console.log)
     .pipe(typograf({ 
