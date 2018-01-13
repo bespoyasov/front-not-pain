@@ -30,8 +30,8 @@
 
   window.addEventListener('scroll', handleScroll, passiveArg)
   window.addEventListener('resize', updateSizeDependent)
+
   nav.addEventListener('click', handleLinkClick)
-  
   Array.from(headings).forEach(el => {
     el.addEventListener('click', handleLinkClick)
   })
@@ -69,9 +69,14 @@
     const section = document.getElementById(sectionName)
     if (!section || !sectionName) return
 
-    disableScrollWatcher(sectionName)
     updateActiveLink(sectionName)
     
+    shouldWatchScroll = false
+    setTimeout(() => {
+      shouldWatchScroll = true
+      if (sectionName) location.hash = sectionName
+    }, 500)
+
     window.scrollTo({ 
       top: getElementOffsetTop(section), 
       behavior: 'smooth' 
@@ -141,15 +146,6 @@
     if (sct > 0 && sct < pageMaxScroll) {
       window.scrollTo(0, sct)
     }
-  }
-
-  function disableScrollWatcher(sectionName=null) {
-    shouldWatchScroll = false
-    
-    setTimeout(() => {
-      shouldWatchScroll = true
-      if (sectionName) location.hash = sectionName
-    }, 500)
   }
 
 }())
