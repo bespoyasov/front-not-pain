@@ -133,9 +133,6 @@ gulp.task('resize', function() {
 })
 
 gulp.task('stuff', function() {
-  const htaccess = gulp.src('./src/.htaccess')
-    .pipe(gulp.dest('./build/'))
-
   const favicons = gulp.src('./src/static/favicons/*')
     .pipe(gulp.dest('./build/favicons/'))
   
