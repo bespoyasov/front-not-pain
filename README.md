@@ -4,7 +4,7 @@
 
 ## Тестовая сборка
 
-[Лежит здесь](https://bespoyasov.ru/test/how-to-understand-designer/)
+[Лежит здесь](https://front-not-pain.bespoyasov.ru/)
 
 ## Часто используемые эмоджи
 - 📖
