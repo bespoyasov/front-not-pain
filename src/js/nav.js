@@ -14,12 +14,14 @@
   const FIXED_CLSNM = 'is-fixed'
   const ACTIVE_LINK_CLSNM = 'is-active'
   const ACTIVE_LINK_QUERY = `.nav a.${ACTIVE_LINK_CLSNM}`
+  const SECTION_HEADINGS = 'section-link'
   const LIMIT_SECTION_ID = 'pain'
   const NAV_ID = 'nav'
   const BOTTOM_LIMIT_SECTION_ID = 'afterwords'
   const MIN_PAGE_WIDTH = 801
 
   const sections = document.getElementsByClassName(SECTIONS_CLSNM)
+  const headings = document.getElementsByClassName(SECTION_HEADINGS)
   const nav = document.getElementById('nav')
   
   let shouldWatchScroll = true
@@ -29,6 +31,10 @@
   window.addEventListener('scroll', handleScroll, passiveArg)
   window.addEventListener('resize', updateSizeDependent)
   nav.addEventListener('click', handleLinkClick)
+  
+  Array.from(headings).forEach(el => {
+    el.addEventListener('click', handleLinkClick)
+  })
 
 
   // hadlers
@@ -63,18 +69,13 @@
     const section = document.getElementById(sectionName)
     if (!section || !sectionName) return
 
-    shouldWatchScroll = false
+    disableScrollWatcher(sectionName)
     updateActiveLink(sectionName)
     
     window.scrollTo({ 
       top: getElementOffsetTop(section), 
       behavior: 'smooth' 
     })
-    
-    setTimeout(() => {
-      shouldWatchScroll = true
-      location.hash = sectionName
-    }, 500)
   }
 
   function findCurrentSection() {
@@ -140,6 +141,15 @@
     if (sct > 0 && sct < pageMaxScroll) {
       window.scrollTo(0, sct)
     }
+  }
+
+  function disableScrollWatcher(sectionName=null) {
+    shouldWatchScroll = false
+    
+    setTimeout(() => {
+      shouldWatchScroll = true
+      if (sectionName) location.hash = sectionName
+    }, 500)
   }
 
 }())
