@@ -41,10 +41,17 @@
   .center {
     padding: 0 1.2rem;
   }
+  .center--narrow {
+    max-width: 850px;
+    padding: 0 2.4rem;
+  }
 }
 
 
 @media (max-width:900px) {
+  .center--narrow {
+    max-width:100%;
+  }
   .column--center, 
   .column--left {
     display:block;
@@ -60,6 +67,9 @@
 
 
 @media (max-width:800px) {
+  .center--narrow {
+    padding: 0 1.2rem;
+  }
   .center .center,
   .column--left {
     padding:0;
@@ -72,7 +82,6 @@
     max-width:100%;
     flex:auto;
   }
-
   .column--right {
     padding-left:0;
     padding-top:0;
