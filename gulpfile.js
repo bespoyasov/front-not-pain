@@ -139,7 +139,10 @@ gulp.task('stuff', function() {
   const txt = gulp.src('./src/*.txt')
     .pipe(gulp.dest('./build/'))
 
-  return merge(favicons, txt)
+  const sw = gulp.src('./src/sw.js')
+    .pipe(gulp.dest('./build/'))
+
+  return merge(favicons, txt, sw)
 })
 
 
