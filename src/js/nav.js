@@ -9,6 +9,10 @@
   } catch (e) {}
 
 
+  // detect history API for change location.hash
+  const hasHistoryApi = typeof history !== 'undefined' && !!history.pushState
+
+
   // nodes and listeners
   const SECTIONS_CLSNM = 'section'
   const FIXED_CLSNM = 'is-fixed'
@@ -136,16 +140,13 @@
   }
 
   function silentlyChangeHash(newHash) {
+    if (!hasHistoryApi || newHash === getHash()) return
     if (pageWidth < MIN_PAGE_WIDTH) return
-    
-    // to change hash without page jump
-    const sct = window.scrollY
-    location.hash = newHash
+    return history.pushState(null, null, `#${newHash}`)
+  }
 
-    // and let overscroll at boundaries in mac os
-    if (sct > 0 && sct < pageMaxScroll) {
-      window.scrollTo(0, sct)
-    }
+  function getHash() {
+    return location.hash.replace('#','')
   }
 
 }())
