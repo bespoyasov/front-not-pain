@@ -12,10 +12,11 @@
 /* scroll inside sticky-container doesn't work properly, 
  * so we have to implement it manually I guess */
 .nav.is-fixed {
-  position: fixed;
-  /* fallback for IE */
+  /* fallback */
   width: 200px;
+
   width: var(--nav-width);
+  position: fixed;
   top:0;
 }
 

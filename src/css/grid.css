@@ -20,14 +20,20 @@
 }
 
 .column--left {
-  /* fallback for IE */
+  /* fallback */
   width:200px;
   max-width:200px;
+
   width: var(--nav-width);
   max-width: var(--nav-width);
 }
 
 .column--right {
+  /* fallback */
+  max-width: 240px;
+  width: 28%;
+  padding-left: 60px;
+
   max-width: var(--right-column-max-width);
   width: var(--right-column-width);
   padding-left: var(--right-column-padding);
@@ -88,6 +94,5 @@
   .column--right {
     padding-left:0;
     padding-top:0;
-    /* padding-top:1.5rem; */
   }
 }
