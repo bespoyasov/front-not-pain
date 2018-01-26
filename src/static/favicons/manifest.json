@@ -1,5 +1,6 @@
 {
     "name": "Фронтенд — это не больно!",
+    "short_name": "Front-not-pain",
     "icons": [
         {
             "src": "https://bespoyasov.ru/front-not-pain/favicons/android-chrome-192x192.png",
