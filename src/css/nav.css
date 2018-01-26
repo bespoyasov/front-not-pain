@@ -13,6 +13,8 @@
  * so we have to implement it manually I guess */
 .nav.is-fixed {
   position: fixed;
+  /* fallback for IE */
+  width: 200px;
   width: var(--nav-width);
   top:0;
 }

@@ -20,6 +20,9 @@
 }
 
 .column--left {
+  /* fallback for IE */
+  width:200px;
+  max-width:200px;
   width: var(--nav-width);
   max-width: var(--nav-width);
 }
