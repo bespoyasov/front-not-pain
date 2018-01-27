@@ -29,6 +29,17 @@
   font-family: var(--font-sans-serif);
 }
 
+.header .copyright {
+  color: rgba(255,255,255, 0.4);
+  position: absolute;
+  bottom:10px;
+  right:10px;
+  font-size: 0.6rem;
+  line-height:1.2em;
+  text-align: right;
+  width:70%;
+}
+
 
 @media (max-width:800px) {
   .header h1 {
@@ -48,5 +59,8 @@
   .header .content {
     padding:0 25px;
     max-width:380px;
+  }
+  .header .copyright {
+    font-size: 0.8rem;
   }
 }
