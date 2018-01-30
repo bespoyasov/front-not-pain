@@ -27,14 +27,14 @@
 
 .checklist .tutorials {
   margin:0;
-  list-style: none;
+  list-style: disc;
   font-size: 1rem;
 }
 
 .checklist .tutorials li {
-  list-style: none;
+  list-style: disc;
   position: relative;
-  padding-left:20px;
+  margin-left:20px;
 }
 
 .checklist input {
