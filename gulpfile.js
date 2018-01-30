@@ -13,7 +13,7 @@ const postcss = require('gulp-postcss')
 const autoprefixer = require('autoprefixer')
 
 const importCss = require('gulp-import-css')
-const cssnano = require('gulp-cssnano')
+const cssmin = require('gulp-cssmin')
 
 const concat = require('gulp-concat')
 const babel = require('gulp-babel')
@@ -74,8 +74,10 @@ gulp.task('html', function() {
 gulp.task('css', function() {
   return gulp.src('./src/css/style.css')
     .pipe(importCss())
-    .pipe(postcss([ autoprefixer() ]))
-    .pipe(cssnano())
+    .pipe(postcss([ autoprefixer({
+      browsers: ['last 4 versions', 'ios 7']
+    }) ]))
+    .pipe(cssmin())
     .pipe(gulp.dest('./build/css/'))
 })
 
