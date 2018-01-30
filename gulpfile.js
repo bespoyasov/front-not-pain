@@ -11,9 +11,7 @@ const htmlmin = require('gulp-htmlmin')
 
 const postcss = require('gulp-postcss')
 const autoprefixer = require('autoprefixer')
-
 const importCss = require('gulp-import-css')
-const cssmin = require('gulp-cssmin')
 
 const concat = require('gulp-concat')
 const babel = require('gulp-babel')
@@ -77,7 +75,6 @@ gulp.task('css', function() {
     .pipe(postcss([ autoprefixer({
       browsers: ['last 4 versions', 'ios 7']
     }) ]))
-    .pipe(cssmin())
     .pipe(gulp.dest('./build/css/'))
 })
 
