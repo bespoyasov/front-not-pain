@@ -1,4 +1,4 @@
-const PRECACHE = 'v1.0.1'
+const PRECACHE = 'v1.0.2'
 const PRECACHE_URLS = [
   './',
   './css/style.css',
