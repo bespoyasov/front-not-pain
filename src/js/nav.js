@@ -43,6 +43,8 @@
 
   // hadlers
   function handleLinkClick(e) {
+    if (!e.target.closest) return
+    
     const link = e.target.closest('a')
     if (!link) return
     
