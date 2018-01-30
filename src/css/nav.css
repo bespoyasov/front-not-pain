@@ -2,7 +2,7 @@
   position: relative;
   padding:3.5rem 0 2rem;
   max-height:100vh;
-  overflow: scroll;
+  overflow: auto;
   top:0;
   font-size: 0.9rem;
   line-height:1.25em;
