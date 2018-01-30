@@ -1,6 +1,5 @@
 .header {
   position: relative;
-  height:100vh;
   min-height: 540px;
   display: flex;
   
@@ -16,6 +15,13 @@
   line-height:1.3em;
   text-align: center;
 }
+
+@supports (height: 100vh) {
+  .header {
+    height: 100vh;
+  }
+}
+
 
 .header h1 {
   font-size: 6rem;
