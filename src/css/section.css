@@ -1,6 +1,8 @@
 .section {
   padding: 3.5rem 0 1rem;
   display:flex;
+  background-color: var(--background-color);
+  color: var(--text-color);
 }
 
 .section.has-no-padding {

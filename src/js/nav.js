@@ -1,4 +1,49 @@
 (function(){
+  function setDarkTheme() {
+    const rootStyle = document.querySelector(':root').style
+    rootStyle.setProperty('--background-color', 'var(--white-dark)');
+    rootStyle.setProperty('--text-color', 'var(--black-dark)');
+    rootStyle.setProperty('--link-color', 'var(--blue-dark)');
+    rootStyle.setProperty('--link-border-color', 'var(--blue-transparent-dark)');
+    rootStyle.setProperty('--link-border-color-visited', 'var(--purple-transparent-dark)');
+    rootStyle.setProperty('--link-border-color-hover', 'var(--red-transparent-dark)');
+    rootStyle.setProperty('--link-color-visited', 'var(--purple-dark)');
+    rootStyle.setProperty('--active-nav', 'var(--red-dark)');
+    rootStyle.setProperty('--figcaption', 'var(--grey-5-dark)');
+    rootStyle.setProperty('--blockquote-background', 'var(--light-brown-dark)');
+    rootStyle.setProperty('--blockquote-before-background', 'var(--grey-1-dark)');
+    rootStyle.setProperty('--mark-color', 'var(--black-dark)');
+    rootStyle.setProperty('--footer-links-color', 'var(--grey-5-dark)');
+    rootStyle.setProperty('--footer-links-color-hover', 'var(--black-dark)');
+    rootStyle.setProperty('--footer-links-border-color', 'var(--grey-2-dark)');
+    rootStyle.setProperty('--footer-links-border-color-hover', 'var(--grey-3-dark)');
+  }
+  function setLightTheme() {
+    const rootStyle = document.querySelector(':root').style
+    rootStyle.setProperty('--background-color', 'var(--white)');
+    rootStyle.setProperty('--text-color', 'var(--black)');
+    rootStyle.setProperty('--link-color', 'var(--blue)');
+    rootStyle.setProperty('--link-border-color', 'var(--blue-transparent)');
+    rootStyle.setProperty('--link-border-color-visited', 'var(--purple-transparent)');
+    rootStyle.setProperty('--link-border-color-hover', 'var(--red-transparent)');
+    rootStyle.setProperty('--link-color-visited', 'var(--purple)');
+    rootStyle.setProperty('--active-nav', 'var(--red)');
+    rootStyle.setProperty('--figcaption', 'var(--grey-5)');
+    rootStyle.setProperty('--blockquote-background', 'var(--light-brown)');
+    rootStyle.setProperty('--blockquote-before-background', 'var(--grey-1)');
+    rootStyle.setProperty('--mark-color', 'var(--black)');
+    rootStyle.setProperty('--footer-links-color', 'var(--grey-5)');
+    rootStyle.setProperty('--footer-links-color-hover', 'var(--black)');
+    rootStyle.setProperty('--footer-links-border-color', 'var(--grey-2)');
+    rootStyle.setProperty('--footer-links-border-color-hover', 'var(--grey-3)');
+  }
+
+  document.getElementById('night').addEventListener('change', ({target}) => {
+    target.checked ? setDarkTheme() : setLightTheme()
+    // document.querySelector(':root').style.setProperty('--background-color', '#282a36');
+    // document.querySelector(':root').style.setProperty('--text-color', '#f8f8f2');
+  })
+
   // passive event polyfill
   let passiveArg = false
   try {
@@ -27,7 +72,7 @@
   const sections = document.getElementsByClassName(SECTIONS_CLSNM)
   const headings = document.getElementsByClassName(SECTION_HEADINGS)
   const nav = document.getElementById('nav')
-  
+
   let shouldWatchScroll = true
   let limit, offsets, pageMaxScroll, bottomLimit, pageWidth
   updateSizeDependent()
@@ -44,10 +89,10 @@
   // hadlers
   function handleLinkClick(e) {
     if (!e.target.closest) return
-    
+
     const link = e.target.closest('a')
     if (!link) return
-    
+
     e.preventDefault()
     const sectionName = link.getAttribute('href').replace('#', '')
     scrollToSection(sectionName)
@@ -63,7 +108,7 @@
     if (!shouldWatchScroll) return
     const section = findCurrentSection()
     const id = section ? section.getAttribute('id') : null
-    
+
     if (!id) return
     silentlyChangeHash(id)
     updateActiveLink(id)
@@ -76,16 +121,16 @@
     if (!section || !sectionName) return
 
     updateActiveLink(sectionName)
-    
+
     shouldWatchScroll = false
     setTimeout(() => {
       shouldWatchScroll = true
       if (sectionName) location.hash = sectionName
     }, 500)
 
-    window.scrollTo({ 
-      top: getElementOffsetTop(section), 
-      behavior: 'smooth' 
+    window.scrollTo({
+      top: getElementOffsetTop(section),
+      behavior: 'smooth'
     })
   }
 
@@ -105,13 +150,13 @@
   }
 
   function updateSectionsOffsets() {
-    return Array.from(sections).map(node => 
+    return Array.from(sections).map(node =>
       getElementOffsetTop(node))
   }
 
   function updateSizeDependent() {
     const limits = calcScrollLimits()
-    limit = limits.limit 
+    limit = limits.limit
     bottomLimit = limits.bottomLimit
 
     offsets = updateSectionsOffsets()
