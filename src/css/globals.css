@@ -12,13 +12,32 @@ html {
   font-family: var(--font-serif);
   line-height: 1.4em;
   font-size: 18px;
-  color:var(--black);
+  color:var(--text-color);
   background: var(--background-color);
   min-width:320px;
 }
 
 body {
   background-color: var(--background-color);
+}
+
+body.dark {
+  --background-color: var(--dark);
+  --text-color: var(--light);
+  --link-color: var(--blue-light);
+  --link-border-color: var(--blue-transparent-light);
+  --link-border-color-visited: var(--purple-transparent-light);
+  --link-border-color-hover: var(--red-transparent-light);
+  --link-color-visited: var(--purple-light);
+  --active-nav: var(--red-light);
+  --figcaption: var(--grey-5-light);
+  --blockquote-background: var(--gun-powder);
+  --blockquote-before-background: var(--grey-1-light);
+  --mark-color: var(--light);
+  --footer-links-color: var(--grey-5-light);
+  --footer-links-color-hover: var(--light);
+  --footer-links-border-color: var(--grey-2-light);
+  --footer-links-border-color-hover: var(--grey-3-light);
 }
 
 h1, h2, h3, h4, h5, h6 {
