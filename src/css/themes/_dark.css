@@ -1,0 +1,18 @@
+:root {
+  --grey-1-light: rgba(255, 255, 255, 0.1);
+  --grey-2-light: rgba(255, 255, 255, 0.2);
+  --grey-3-light: rgba(255, 255, 255, 0.3);
+  --grey-5-light: rgba(255, 255, 255, 0.5);
+
+  --gun-powder: #44475a;
+  --purple-light: #bd93f9;
+  --blue-light: #008bfe;
+  --red-light: #ff5555;
+
+  --purple-transparent-light: rgba(189, 147, 249, 0.1);
+  --blue-transparent-light: rgba(0, 139, 254, 0.3);
+  --red-transparent-light: rgba(251, 51, 71, 0.3);
+
+  --dark: #282a36;
+  --light: #f8f8f2;
+}
