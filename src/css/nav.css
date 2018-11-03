@@ -53,18 +53,18 @@
   align-items: center;
 }
 
-#dayIcon {
+.toggle-label::before {
+  content: '';
+  background: url('/img/sun.svg');
   width: 18px;
   height: 18px;
   margin-right: 7px;
-  fill: #9caec0;
 }
 
-#nightIcon {
-  width: 18px;
-  height: 18px;
+.toggle-label--crescent::before {
+  background: url('/img/crescent.svg');
   margin-left: 7px;
-  fill: #9caec0;
+  margin-right: 0;
 }
 
 .toggle + .toggle-button {
