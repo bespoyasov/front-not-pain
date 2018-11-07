@@ -49,6 +49,15 @@
   font-size:0.7rem;
 }
 
+.dark .footer .likely .likely__widget {
+  color: rgba(255,255,255,0.6);
+  background: rgba(231,231,231,.1);
+}
+.dark .footer .likely .likely__widget:hover,
+.dark .footer .likely .likely__widget:focus {
+  color: rgba(255,255,255,0.9);
+}
+
 
 @media (max-width:980px) {
   .footer .likely .likely__button,
