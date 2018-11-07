@@ -59,7 +59,7 @@ gulp.task('html', function() {
   return gulp.src('./src/*.html')
     .pipe(include())
       .on('error', console.log)
-    .pipe(typograf({ 
+    .pipe(typograf({
       locale: ['ru', 'en-US'],
       enableRule: ['ru/optalign/*'],
       disableRule: ['ru/nbsp/afterNumberSign'],
@@ -86,7 +86,7 @@ gulp.task('js', function() {
     }))
     .pipe(minify())
     .pipe(gulp.dest('./build/js/'))
-  
+
   const external = gulp.src('./src/external/*.js')
     .pipe(gulp.dest('./build/external/'))
 
@@ -94,14 +94,14 @@ gulp.task('js', function() {
 })
 
 gulp.task('images', ['resize'], function() {
-  const minifyNormal = gulp.src('./src/static/img/*.{jpg,png}')
+  const minifyNormal = gulp.src('./src/static/img/*.{jpg,png,svg}')
     .pipe(imagemin())
     .pipe(gulp.dest('./build/img/'))
 
   const minifyAdaptive = gulp.src('./src/static/img/tmp/*.{jpg,png}')
     .pipe(imagemin())
     .pipe(gulp.dest('./build/img/'))
-  
+
   const convertNormal = gulp.src('./src/static/img/*.{jpg,png}')
     .pipe(webp())
     .pipe(gulp.dest('./build/img/'))
@@ -134,7 +134,7 @@ gulp.task('resize', function() {
 gulp.task('stuff', function() {
   const favicons = gulp.src('./src/static/favicons/*')
     .pipe(gulp.dest('./build/favicons/'))
-  
+
   const txt = gulp.src('./src/*.txt')
     .pipe(gulp.dest('./build/'))
 

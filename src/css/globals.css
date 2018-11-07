@@ -7,15 +7,37 @@
 html {
   /* fallback */
   font-family: 'PT Serif';
-
   -webkit-font-smoothing: antialiased;
   -webkit-text-size-adjust: none;
   font-family: var(--font-serif);
   line-height: 1.4em;
   font-size: 18px;
-  color:var(--black);
-  background: white;
+  color:var(--text-color);
+  background: var(--background-color);
   min-width:320px;
+}
+
+body {
+  background-color: var(--background-color);
+}
+
+body.dark {
+  --background-color: var(--dark);
+  --text-color: var(--light);
+  --link-color: var(--blue-light);
+  --link-border-color: var(--blue-transparent-light);
+  --link-border-color-visited: var(--purple-transparent-light);
+  --link-border-color-hover: var(--red-transparent-light);
+  --link-color-visited: var(--purple-light);
+  --active-nav: var(--red-light);
+  --figcaption: var(--grey-5-light);
+  --blockquote-background: var(--gun-powder);
+  --blockquote-before-background: var(--grey-1-light);
+  --mark-color: var(--light);
+  --footer-links-color: var(--grey-5-light);
+  --footer-links-color-hover: var(--light);
+  --footer-links-border-color: var(--grey-2-light);
+  --footer-links-border-color-hover: var(--grey-3-light);
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -58,7 +80,7 @@ blockquote {
   margin:1.6rem 0;
   padding: 1.3rem 3rem 1.8rem;
   display:block;
-  background: var(--light-brown);
+  background: var(--blockquote-background);
   position: relative;
 }
 blockquote:last-child {
@@ -70,7 +92,7 @@ blockquote:before {
   position: absolute;
   left: 1rem;
   top: .9rem;
-  color: var(--grey-1);
+  color: var(--blockquote-before-background);
   font-size: 3.2rem
 }
 
@@ -100,12 +122,13 @@ figcaption {
   font-size: 0.8rem;
   line-height:1.2em;
   padding-top:0.3rem;
-  color:var(--grey-5);
+  color:var(--figcaption);
   text-align: center;
   font-family: var(--font-sans-serif);
 }
 
 mark {
+  color: var(--mark-color);
   display: block;
   margin:0;
   padding: 1.8rem 0 1.5rem 3rem;
@@ -120,17 +143,17 @@ mark {
 }
 
 a {
-  color:var(--blue);
+  color:var(--link-color);
   text-decoration: none;
-  border-bottom:1px solid var(--blue-transparent)
+  border-bottom:1px solid var(--link-border-color);
 }
 a:visited {
-  color: var(--purple);
-  border-bottom-color:var(--purple-transparent)
+  color: var(--link-color-visited);
+  border-bottom-color:var(--link-border-color-visited);
 }
 a:hover {
   color:var(--red);
-  border-bottom-color:var(--red-transparent)
+  border-bottom-color:var(--link-border-color-hover);
 }
 
 

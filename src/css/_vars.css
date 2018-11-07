@@ -5,29 +5,27 @@
   --nav-width: 200px;
   --right-column-width: 28%;
   --right-column-max-width: 240px;
-  --right-column-padding: 60px;  
-
-  --grey-1: rgba(0,0,0,.1);
-  --grey-2: rgba(0,0,0,.2);
-  --grey-3: rgba(0,0,0,.3);
-  --grey-5: rgba(0,0,0,.5);
+  --right-column-padding: 60px;
 
   --header-background: #526850;
-  
-  --light-brown: #f7f5ec;
-  --brown: #887744;
-  --purple: #542189;
-  --blue: #0000fe;
-  --red: #fb3347;
 
-  --purple-transparent: rgba(84, 33, 137, .1);
-  --blue-transparent: rgba(0, 0, 254, .1);
-  --red-transparent: rgba(251, 51, 71, .1);
- 
-  --white: white;
-  --black: black;
+  --background-color: var(--white);
+  --text-color: var(--black);
+  --link-color: var(--blue);
+  --link-border-color: var(--blue-transparent);
+  --link-border-color-visited: var(--purple-transparent);
+  --link-border-color-hover: var(--red-transparent);
+  --link-color-visited: var(--purple);
+  --active-nav: var(--red);
+  --figcaption: var(--grey-5);
+  --blockquote-background: var(--light-brown);
+  --blockquote-before-background: var(--grey-1);
+  --mark-color: var(--black);
+  --footer-links-color: var(--grey-5);
+  --footer-links-color-hover: var(--black);
+  --footer-links-border-color: var(--grey-2);
+  --footer-links-border-color-hover: var(--grey-3);
 }
-
 
 @media (max-width:1060px) {
   :root {

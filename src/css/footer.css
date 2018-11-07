@@ -24,13 +24,13 @@
 }
 
 .footer-links a {
-  color: var(--grey-5);
-  border-color: var(--grey-2);
+  color: var(--footer-links-color);
+  border-color: var(--footer-links-border-color);
 }
 
 .footer-links a:hover {
-  color:var(--black);
-  border-color: var(--grey-3);
+  color:var(--footer-links-color-hover);
+  border-color: var(--footer-links-border-color-hover);
 }
 
 .footer .grid {

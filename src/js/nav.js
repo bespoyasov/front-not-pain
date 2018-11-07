@@ -1,4 +1,9 @@
 (function(){
+  // dark theme toggler
+  document.getElementById('night').addEventListener('change', () => {
+    document.body.classList.toggle('dark')
+  })
+
   // passive event polyfill
   let passiveArg = false
   try {
@@ -27,7 +32,7 @@
   const sections = document.getElementsByClassName(SECTIONS_CLSNM)
   const headings = document.getElementsByClassName(SECTION_HEADINGS)
   const nav = document.getElementById('nav')
-  
+
   let shouldWatchScroll = true
   let limit, offsets, pageMaxScroll, bottomLimit, pageWidth
   updateSizeDependent()
@@ -44,10 +49,10 @@
   // hadlers
   function handleLinkClick(e) {
     if (!e.target.closest) return
-    
+
     const link = e.target.closest('a')
     if (!link) return
-    
+
     e.preventDefault()
     const sectionName = link.getAttribute('href').replace('#', '')
     scrollToSection(sectionName)
@@ -63,7 +68,7 @@
     if (!shouldWatchScroll) return
     const section = findCurrentSection()
     const id = section ? section.getAttribute('id') : null
-    
+
     if (!id) return
     silentlyChangeHash(id)
     updateActiveLink(id)
@@ -76,16 +81,16 @@
     if (!section || !sectionName) return
 
     updateActiveLink(sectionName)
-    
+
     shouldWatchScroll = false
     setTimeout(() => {
       shouldWatchScroll = true
       if (sectionName) location.hash = sectionName
     }, 500)
 
-    window.scrollTo({ 
-      top: getElementOffsetTop(section), 
-      behavior: 'smooth' 
+    window.scrollTo({
+      top: getElementOffsetTop(section),
+      behavior: 'smooth'
     })
   }
 
@@ -105,13 +110,13 @@
   }
 
   function updateSectionsOffsets() {
-    return Array.from(sections).map(node => 
+    return Array.from(sections).map(node =>
       getElementOffsetTop(node))
   }
 
   function updateSizeDependent() {
     const limits = calcScrollLimits()
-    limit = limits.limit 
+    limit = limits.limit
     bottomLimit = limits.bottomLimit
 
     offsets = updateSectionsOffsets()
