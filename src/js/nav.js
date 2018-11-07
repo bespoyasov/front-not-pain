@@ -1,9 +1,4 @@
 (function(){
-  // dark theme toggler
-  document.getElementById('night').addEventListener('change', () => {
-    document.body.classList.toggle('dark')
-  })
-
   // passive event polyfill
   let passiveArg = false
   try {
