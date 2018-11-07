@@ -1,8 +1,8 @@
 (function(){
   // dark theme toggler
-  const toggleInputNode = document.getElementById('night')
+  const toggleInput = document.getElementById('night')
   
-  toggleInputNode.addEventListener('change', () =>
+  toggleInput.addEventListener('change', () =>
     document.body.classList.toggle('dark'))
 
 }())
