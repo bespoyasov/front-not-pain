@@ -18,14 +18,14 @@
 
 .toggle-label::before {
   content: '';
-  background: url('/img/sun.svg');
+  background: url('../img/sun.svg');
   width: 18px;
   height: 18px;
   margin-right: 7px;
 }
 
 .toggle-label--crescent::before {
-  background: url('/img/crescent.svg');
+  background: url('../img/crescent.svg');
   margin-left: 7px;
   margin-right: 0;
 }
