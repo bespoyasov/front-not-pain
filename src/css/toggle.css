@@ -1,0 +1,64 @@
+/* created: Joseph Shenton @TeamiHackify */
+/* adapted: Tagir Almasov @tagir-a */
+.toggle {
+  display: flex;
+  align-items: center;
+}
+
+.toggle input {
+  display: none;
+}
+
+.toggle label {
+  color: var(--text-color);
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.toggle-label::before {
+  content: '';
+  background: url('../img/sun.svg');
+  width: 18px;
+  height: 18px;
+  margin-right: 7px;
+}
+
+.toggle-label--crescent::before {
+  background: url('../img/crescent.svg');
+  margin-left: 7px;
+  margin-right: 0;
+}
+
+.toggle-control + .toggle-button {
+  width: 40px;
+  height: 20px;
+  border: 2px solid var(--toggle-border);
+}
+
+.toggle-control + .toggle-button::after {
+  position: relative;
+  width: 50%;
+  height: 100%;
+}
+
+.toggle-control + .toggle-button::after {
+  left: 0;
+}
+
+.toggle-control:checked + .toggle-button::after {
+  left: 50%;
+}
+
+.toggle-control + .toggle-button {
+  padding: 2px;
+  border: 2px solid var(--toggle-background);
+  border-radius: 2em;
+}
+
+.toggle-control + .toggle-button::after {
+  transition: all .2s ease;
+  background: var(--toggle-background);
+  content: "";
+  border-radius: 1em;
+}

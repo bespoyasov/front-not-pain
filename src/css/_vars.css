@@ -8,6 +8,8 @@
   --right-column-padding: 60px;
 
   --header-background: #526850;
+  --toggle-background: rgba(156, 174, 192, 0.27);
+  --toggle-border: #333333;
 
   --background-color: var(--white);
   --text-color: var(--black);
@@ -25,6 +27,7 @@
   --footer-links-color-hover: var(--black);
   --footer-links-border-color: var(--grey-2);
   --footer-links-border-color-hover: var(--grey-3);
+  --table-border-color: var(--grey-05);
 }
 
 @media (max-width:1060px) {

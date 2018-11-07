@@ -117,8 +117,8 @@ h2:hover .section-link {
   margin:0;
   border:0;
   vertical-align: top;
-  border-bottom:1px solid #e8e8e8;
-  border-right:1px solid #e8e8e8;
+  border-bottom:1px solid var(--table-border-color);
+  border-right:1px solid var(--table-border-color);
   width:50%;
 }
 

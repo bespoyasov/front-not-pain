@@ -38,6 +38,7 @@ body.dark {
   --footer-links-color-hover: var(--light);
   --footer-links-border-color: var(--grey-2-light);
   --footer-links-border-color-hover: var(--grey-3-light);
+  --table-border-color: var(--grey-05-light);
 }
 
 h1, h2, h3, h4, h5, h6 {
