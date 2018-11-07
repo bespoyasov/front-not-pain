@@ -84,5 +84,5 @@
 }
 .dark .footer .likely .likely__widget:hover,
 .dark .footer .likely .likely__widget:focus {
-  color: rgba(255,255,255,0.9);
+  background: rgba(231,231,231,.2);
 }
