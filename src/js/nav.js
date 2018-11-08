@@ -151,4 +151,4 @@
     return location.hash.replace('#','')
   }
 
-}())
+}());
