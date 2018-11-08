@@ -20,8 +20,7 @@
 - `480px`.
 
 ## Разработка
-Для локального запуска вам потребуется [GraphicsMagick](http://www.graphicsmagick.org/).
+Для локального запуска вам потребуется [GraphicsMagick](http://www.graphicsmagick.org/). Можно воспользоваться [Homebrew](http://mxcl.github.io/homebrew/): `brew install graphicsmagick`
 
-Можно воспользоваться [Homebrew](http://mxcl.github.io/homebrew/): `brew install graphicsmagick`
-
-Собрать билд и запустить: `npm start`
+Разработка: `npm start`<br />
+Билд: `npm run build`
