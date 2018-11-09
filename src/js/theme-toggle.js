@@ -7,6 +7,9 @@
 
 
   const darkThemeQuery = '(prefers-color-scheme: dark)'
-  if (window.matchMedia(darkThemeQuery).matches) toggle.click()
+  const matchMedia = window.matchMedia
+  if (matchMedia && matchMedia(darkThemeQuery).matches) {
+    toggle.click()
+  }
 
 }());
