@@ -6,7 +6,14 @@
 }
 
 .toggle input {
-  display: none;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  clip: rect(0 0 0 0);
 }
 
 .toggle label {
@@ -61,4 +68,8 @@
   background: var(--toggle-background);
   content: "";
   border-radius: 1em;
+}
+
+.toggle-control:focus + .toggle-button {
+  outline: auto;
 }
