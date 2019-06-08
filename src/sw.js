@@ -1,4 +1,4 @@
-const PRECACHE = 'v1.10.0';
+const PRECACHE = 'v1.11.0';
 const PRECACHE_URLS = ['./', './css/style.css', './js/scripts-min.js'];
 
 self.addEventListener('install', (event) => {
