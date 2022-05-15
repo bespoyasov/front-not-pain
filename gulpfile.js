@@ -3,13 +3,13 @@ import gulp from "gulp";
 
 import rename from "gulp-rename";
 import clean from "gulp-clean";
+import concat from "gulp-concat";
+import minify from "gulp-minify";
+
 import include from "gulp-include";
 import typograf from "gulp-typograf";
 import htmlmin from "gulp-htmlmin";
 import importCss from "gulp-import-css";
-
-import concat from "gulp-concat";
-import minify from "gulp-minify";
 
 import imagemin from "gulp-imagemin";
 import imageResize from "gulp-image-resize";
