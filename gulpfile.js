@@ -16,7 +16,6 @@ import imagemin from "gulp-imagemin";
 import imageResize from "gulp-image-resize";
 import webp from "gulp-webp";
 
-import watch from "gulp-watch";
 import webserver from "gulp-webserver";
 
 const NON_BREAKING_HYPHEN = "‑";
@@ -36,13 +35,7 @@ const typografRules = [
   },
 ];
 
-gulp.task("default", ["html", "css", "js", "images", "watch", "webserver"]);
-
-gulp.task("build", ["html", "css", "js", "images", "static"], function () {
-  gulp.start("clean");
-});
-
-gulp.task("html", function () {
+function html() {
   return gulp
     .src("./src/*.html")
     .pipe(include())
@@ -57,98 +50,94 @@ gulp.task("html", function () {
     )
     .pipe(htmlmin({ collapseWhitespace: true }))
     .pipe(gulp.dest("./build/"));
-});
+}
 
-gulp.task("css", function () {
+function css() {
   return gulp
     .src("./src/css/style.css")
     .pipe(importCss())
     .pipe(gulp.dest("./build/css/"));
-});
+}
 
-gulp.task("js", function () {
-  const main = gulp
-    .src("./src/js/**/*.js")
+function js() {
+  const internal = ["./src/js/**/*.js"];
+  const external = ["node_modules/ilyabirman-likely/release/likely.min.js"];
+
+  return gulp
+    .src([...internal, ...external])
     .pipe(concat("scripts.js"))
     .pipe(minify())
     .pipe(gulp.dest("./build/js/"));
+}
 
-  const external = gulp
-    .src("./src/external/*.js")
-    .pipe(gulp.dest("./build/external/"));
+function resize(done) {
+  const source = "./src/static/img/resize/**/*.{jpg,png}";
+  const target = "./src/static/img/tmp/";
 
-  return merge(main, external);
-});
+  const x1 = () =>
+    gulp
+      .src(source)
+      .pipe(imageResize({ width: 320 }))
+      .pipe(gulp.dest(target));
 
-gulp.task("images", ["resize"], function () {
-  const minifyNormal = gulp
-    .src("./src/static/img/*.{jpg,png,svg}")
-    .pipe(imagemin())
-    .pipe(gulp.dest("./build/img/"));
+  const x2 = () =>
+    gulp
+      .src(source)
+      .pipe(imageResize({ width: 640 }))
+      .pipe(rename((path) => (path.basename += "@2x")))
+      .pipe(gulp.dest(target));
 
-  const minifyAdaptive = gulp
-    .src("./src/static/img/tmp/*.{jpg,png}")
-    .pipe(imagemin())
-    .pipe(gulp.dest("./build/img/"));
+  return gulp.parallel(x1, x2)(done);
+}
 
-  const convertNormal = gulp
-    .src("./src/static/img/*.{jpg,png}")
-    .pipe(webp())
-    .pipe(gulp.dest("./build/img/"));
+function images(done) {
+  const minify = () =>
+    gulp
+      .src([
+        "./src/static/img/*.{jpg,png,svg}",
+        "./src/static/img/tmp/*.{jpg,png}",
+      ])
+      .pipe(imagemin())
+      .pipe(gulp.dest("./build/img/"));
 
-  const convertAdaptive = gulp
-    .src("./src/static/img/tmp/*.{jpg,png}")
-    .pipe(webp())
-    .pipe(gulp.dest("./build/img/"));
+  const toWebp = () =>
+    gulp
+      .src(["./src/static/img/*.{jpg,png}", "./src/static/img/tmp/*.{jpg,png}"])
+      .pipe(webp())
+      .pipe(gulp.dest("./build/img/"));
 
-  return merge(minifyNormal, minifyAdaptive, convertNormal, convertAdaptive);
-});
+  return gulp.series(resize, gulp.parallel(minify, toWebp))(done);
+}
 
-gulp.task("resize", function () {
-  const sizeX1 = gulp
-    .src("./src/static/img/resize/**/*.{jpg,png}")
-    .pipe(imageResize({ width: 320 }))
-    .pipe(gulp.dest("./src/static/img/tmp/"));
+function meta(done) {
+  const txt = () => gulp.src("./src/*.txt").pipe(gulp.dest("./build/"));
+  const favicons = () =>
+    gulp.src("./src/static/favicons/*").pipe(gulp.dest("./build/favicons/"));
 
-  const sizeX2 = gulp
-    .src("./src/static/img/resize/**/*.{jpg,png}")
-    .pipe(imageResize({ width: 640 }))
-    .pipe(
-      rename(function (path) {
-        path.basename += "@2x";
-      })
-    )
-    .pipe(gulp.dest("./src/static/img/tmp/"));
+  return gulp.parallel(favicons, txt)(done);
+}
 
-  return merge(sizeX1, sizeX2);
-});
+function cleanup() {
+  return gulp
+    .src("./src/static/img/tmp", { read: false, allowEmpty: true })
+    .pipe(clean());
+}
 
-gulp.task("static", function () {
-  const favicons = gulp
-    .src("./src/static/favicons/*")
-    .pipe(gulp.dest("./build/favicons/"));
-
-  const txt = gulp.src("./src/*.txt").pipe(gulp.dest("./build/"));
-
-  return merge(favicons, txt);
-});
-
-gulp.task("watch", function () {
-  gulp.watch(["./src/**/*.html"], ["html"]);
-  gulp.watch(["./src/css/*.css"], ["css"]);
-  gulp.watch(["./src/js/**/*.js"], ["js"]);
-});
-
-gulp.task("webserver", function () {
-  gulp.src("./build/").pipe(
+function server() {
+  return gulp.src("./build/").pipe(
     webserver({
       livereload: { enable: true },
       open: "http://localhost:8001/",
       port: 8001,
     })
   );
+}
+
+gulp.task("watch", function () {
+  gulp.watch("./src/**/*.html", html);
+  gulp.watch("./src/css/*.css", css);
+  gulp.watch("./src/js/**/*.js", js);
 });
 
-gulp.task("clean", function () {
-  return gulp.src("./src/static/img/tmp", { read: false }).pipe(clean());
-});
+gulp.task("default", gulp.series(html, css, js, images, server, "watch"));
+gulp.task("build", gulp.series(html, css, js, images, meta, cleanup));
