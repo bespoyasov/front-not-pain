@@ -14,6 +14,7 @@ import importCss from "gulp-import-css";
 import imagemin from "gulp-imagemin";
 import imageResize from "gulp-image-resize";
 import webp from "gulp-webp";
+import avif from "gulp-avif";
 
 import webserver from "gulp-webserver";
 
@@ -89,22 +90,28 @@ function resize(done) {
 }
 
 function images(done) {
+  const minifiable = [
+    "./src/static/img/*.{jpg,png,svg}",
+    "./src/static/img/tmp/*.{jpg,png}",
+  ];
+
+  const convertible = [
+    "./src/static/img/*.{jpg,png}",
+    "./src/static/img/tmp/*.{jpg,png}",
+  ];
+
+  const target = "./build/img/";
+
   const minify = () =>
-    gulp
-      .src([
-        "./src/static/img/*.{jpg,png,svg}",
-        "./src/static/img/tmp/*.{jpg,png}",
-      ])
-      .pipe(imagemin())
-      .pipe(gulp.dest("./build/img/"));
+    gulp.src(minifiable).pipe(imagemin()).pipe(gulp.dest(target));
 
   const toWebp = () =>
-    gulp
-      .src(["./src/static/img/*.{jpg,png}", "./src/static/img/tmp/*.{jpg,png}"])
-      .pipe(webp())
-      .pipe(gulp.dest("./build/img/"));
+    gulp.src(convertible).pipe(webp()).pipe(gulp.dest(target));
 
-  return gulp.series(resize, gulp.parallel(minify, toWebp))(done);
+  const toAvif = () =>
+    gulp.src(convertible).pipe(avif()).pipe(gulp.dest(target));
+
+  return gulp.series(resize, gulp.parallel(minify, toWebp, toAvif))(done);
 }
 
 function meta(done) {
