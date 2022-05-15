@@ -21,12 +21,6 @@ import webserver from "gulp-webserver";
 
 const NON_BREAKING_HYPHEN = "‑";
 
-const WATCHERS = {
-  html: ["./src/**/*.html"],
-  styles: ["./src/css/*.css"],
-  scripts: ["./src/js/**/*.js"],
-};
-
 const typografRules = [
   {
     name: "common/other/nonBreakingHyphen",
@@ -140,9 +134,9 @@ gulp.task("static", function () {
 });
 
 gulp.task("watch", function () {
-  gulp.watch(WATCHERS.html, ["html"]);
-  gulp.watch(WATCHERS.styles, ["css"]);
-  gulp.watch(WATCHERS.scripts, ["js"]);
+  gulp.watch(["./src/**/*.html"], ["html"]);
+  gulp.watch(["./src/css/*.css"], ["css"]);
+  gulp.watch(["./src/js/**/*.js"], ["js"]);
 });
 
 gulp.task("webserver", function () {
