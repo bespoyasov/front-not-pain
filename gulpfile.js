@@ -17,24 +17,23 @@ import webp from "gulp-webp";
 
 import webserver from "gulp-webserver";
 
-const NON_BREAKING_HYPHEN = "‑";
-
-const typografRules = [
-  {
-    name: "common/other/nonBreakingHyphen",
-    handler: (text) => text.replace(/\-/g, NON_BREAKING_HYPHEN),
-  },
-  {
-    name: "common/other/typographicalEmoticon",
-    handler: (text) =>
-      text
-        .replace(/\:\ \–\)/g, ":–)")
-        .replace(/\:\ \–\(/g, ":–(")
-        .replace(/\;\ \–\)/g, ";–)"),
-  },
-];
-
 function html() {
+  const nonBreakingHyphen = "‑";
+  const typografRules = [
+    {
+      name: "common/other/nonBreakingHyphen",
+      handler: (text) => text.replace(/\-/g, nonBreakingHyphen),
+    },
+    {
+      name: "common/other/typographicalEmoticon",
+      handler: (text) =>
+        text
+          .replace(/\:\ \–\)/g, ":–)")
+          .replace(/\:\ \–\(/g, ":–(")
+          .replace(/\;\ \–\)/g, ";–)"),
+    },
+  ];
+
   return gulp
     .src("./src/*.html")
     .pipe(include())
