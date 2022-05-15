@@ -2,6 +2,7 @@
   "name": "front-not-pain",
   "version": "1.11.3",
   "description": "О том как работать без напряга. Пособие для фронтенд-разработчиков и сочувствующих",
+  "type": "module",
   "scripts": {
     "start": "gulp",
     "build": "gulp build"
