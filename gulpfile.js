@@ -1,6 +1,5 @@
-import gulp from "gulp";
 import path from "path";
-import merge from "merge-stream";
+import gulp from "gulp";
 
 import rename from "gulp-rename";
 import clean from "gulp-clean";
