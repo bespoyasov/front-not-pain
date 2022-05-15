@@ -35,7 +35,6 @@
   },
   "dependencies": {
     "array-from": "^2.1.1",
-    "ilyabirman-likely": "^2.3.0",
-    "smoothscroll-polyfill": "^0.4.0"
+    "ilyabirman-likely": "^2.3.0"
   }
 }
