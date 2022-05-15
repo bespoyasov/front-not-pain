@@ -11,7 +11,6 @@ const htmlmin = require("gulp-htmlmin");
 const importCss = require("gulp-import-css");
 
 const concat = require("gulp-concat");
-const babel = require("gulp-babel");
 const minify = require("gulp-minify");
 
 const imagemin = require("gulp-imagemin");
@@ -81,11 +80,6 @@ gulp.task("js", function () {
   const main = gulp
     .src("./src/js/**/*.js")
     .pipe(concat("scripts.js"))
-    .pipe(
-      babel({
-        presets: ["es2015"],
-      })
-    )
     .pipe(minify())
     .pipe(gulp.dest("./build/js/"));
 
