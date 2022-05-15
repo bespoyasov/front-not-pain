@@ -1,7 +1,7 @@
 {
   "name": "front-not-pain",
   "version": "1.11.3",
-  "description": "",
+  "description": "О том как работать без напряга. Пособие для фронтенд-разработчиков и сочувствующих",
   "main": "index.js",
   "scripts": {
     "start": "gulp",
