@@ -109,10 +109,10 @@ function images(done) {
 
 function meta(done) {
   const txt = () => gulp.src("./src/*.txt").pipe(gulp.dest("./build/"));
-  const favicons = () =>
-    gulp.src("./src/static/favicons/*").pipe(gulp.dest("./build/favicons/"));
+  const icons = () =>
+    gulp.src("./src/static/meta/*").pipe(gulp.dest("./build/meta/"));
 
-  return gulp.parallel(favicons, txt)(done);
+  return gulp.parallel(icons, txt)(done);
 }
 
 function cleanup() {
