@@ -108,7 +108,7 @@ function images(done) {
 }
 
 function meta(done) {
-  const txt = () => gulp.src("./src/*.txt").pipe(gulp.dest("./build/"));
+  const txt = () => gulp.src("./src/static/*.txt").pipe(gulp.dest("./build/"));
   const icons = () =>
     gulp.src("./src/static/meta/*").pipe(gulp.dest("./build/meta/"));
 
