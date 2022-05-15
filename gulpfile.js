@@ -8,9 +8,6 @@ const clean = require("gulp-clean");
 const include = require("gulp-include");
 const typograf = require("gulp-typograf");
 const htmlmin = require("gulp-htmlmin");
-
-const postcss = require("gulp-postcss");
-const autoprefixer = require("autoprefixer");
 const importCss = require("gulp-import-css");
 
 const concat = require("gulp-concat");
@@ -77,13 +74,6 @@ gulp.task("css", function () {
   return gulp
     .src("./src/css/style.css")
     .pipe(importCss())
-    .pipe(
-      postcss([
-        autoprefixer({
-          browsers: ["last 4 versions", "ios 7"],
-        }),
-      ])
-    )
     .pipe(gulp.dest("./build/css/"));
 });
 
