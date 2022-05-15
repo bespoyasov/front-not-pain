@@ -48,7 +48,7 @@ const typografRules = [
 // tasks
 gulp.task("default", ["html", "css", "js", "images", "watch", "webserver"]);
 
-gulp.task("build", ["html", "css", "js", "images", "stuff"], function () {
+gulp.task("build", ["html", "css", "js", "images", "static"], function () {
   gulp.start("clean");
 });
 
@@ -133,7 +133,7 @@ gulp.task("resize", function () {
   return merge(sizeX1, sizeX2);
 });
 
-gulp.task("stuff", function () {
+gulp.task("static", function () {
   const favicons = gulp
     .src("./src/static/favicons/*")
     .pipe(gulp.dest("./build/favicons/"));
