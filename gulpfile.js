@@ -1,4 +1,3 @@
-// imports
 import gulp from "gulp";
 import path from "path";
 import merge from "merge-stream";
@@ -20,7 +19,6 @@ import webp from "gulp-webp";
 import watch from "gulp-watch";
 import webserver from "gulp-webserver";
 
-// constants
 const NON_BREAKING_HYPHEN = "‑";
 
 const WATCHERS = {
@@ -29,7 +27,6 @@ const WATCHERS = {
   scripts: ["./src/js/**/*.js"],
 };
 
-// typography
 const typografRules = [
   {
     name: "common/other/nonBreakingHyphen",
@@ -45,7 +42,6 @@ const typografRules = [
   },
 ];
 
-// tasks
 gulp.task("default", ["html", "css", "js", "images", "watch", "webserver"]);
 
 gulp.task("build", ["html", "css", "js", "images", "static"], function () {
