@@ -1,24 +1,24 @@
 // imports
-const gulp = require("gulp");
-const path = require("path");
-const merge = require("merge-stream");
+import gulp from "gulp";
+import path from "path";
+import merge from "merge-stream";
 
-const rename = require("gulp-rename");
-const clean = require("gulp-clean");
-const include = require("gulp-include");
-const typograf = require("gulp-typograf");
-const htmlmin = require("gulp-htmlmin");
-const importCss = require("gulp-import-css");
+import rename from "gulp-rename";
+import clean from "gulp-clean";
+import include from "gulp-include";
+import typograf from "gulp-typograf";
+import htmlmin from "gulp-htmlmin";
+import importCss from "gulp-import-css";
 
-const concat = require("gulp-concat");
-const minify = require("gulp-minify");
+import concat from "gulp-concat";
+import minify from "gulp-minify";
 
-const imagemin = require("gulp-imagemin");
-const imageResize = require("gulp-image-resize");
-const webp = require("gulp-webp");
+import imagemin from "gulp-imagemin";
+import imageResize from "gulp-image-resize";
+import webp from "gulp-webp";
 
-const watch = require("gulp-watch");
-const webserver = require("gulp-webserver");
+import watch from "gulp-watch";
+import webserver from "gulp-webserver";
 
 // constants
 const NON_BREAKING_HYPHEN = "‑";
