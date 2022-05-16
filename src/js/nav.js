@@ -22,7 +22,7 @@
   const nav = document.getElementById("nav");
 
   let shouldWatchScroll = true;
-  let limit, offsets, pageMaxScroll, bottomLimit, pageWidth;
+  let topLimit, offsets, pageMaxScroll, bottomLimit, pageWidth;
   updateSizeDependent();
 
   window.addEventListener("scroll", handleScroll, supportsPassive);
@@ -49,7 +49,7 @@
 
     const fixedClassName = "is-fixed";
     const sct = window.scrollY;
-    if (sct >= limit && sct < bottomLimit) nav.classList.add(fixedClassName);
+    if (sct >= topLimit && sct < bottomLimit) nav.classList.add(fixedClassName);
     else nav.classList.remove(fixedClassName);
 
     if (!shouldWatchScroll) return;
@@ -105,7 +105,7 @@
 
   function updateSizeDependent() {
     const limits = calcScrollLimits();
-    limit = limits.limit;
+    topLimit = limits.topLimit;
     bottomLimit = limits.bottomLimit;
 
     offsets = updateSectionsOffsets();
@@ -119,7 +119,7 @@
     const bottomNode = document.getElementById("afterwords");
 
     return {
-      limit: getElementOffsetTop(topNode),
+      topLimit: getElementOffsetTop(topNode),
       bottomLimit: getElementOffsetTop(bottomNode) - window.innerHeight / 2,
     };
   }
