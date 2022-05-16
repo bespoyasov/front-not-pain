@@ -1,12 +1,12 @@
 .center {
   max-width: 1400px;
-  margin:0 auto;
-  padding:0 1.5rem;
-  width:100%;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  width: 100%;
 }
 
 .center--narrow {
-  max-width:700px;
+  max-width: 700px;
 }
 
 .grid {
@@ -21,8 +21,8 @@
 
 .column--left {
   /* fallback */
-  width:200px;
-  max-width:200px;
+  width: 200px;
+  max-width: 200px;
 
   width: var(--nav-width);
   max-width: var(--nav-width);
@@ -37,16 +37,14 @@
   max-width: var(--right-column-max-width);
   width: var(--right-column-width);
   padding-left: var(--right-column-padding);
-  padding-top:2.9rem;
+  padding-top: 2.9rem;
 }
 
 .column--third {
-  width:33%;
+  width: 33%;
 }
 
-
-
-@media (max-width:1060px) {
+@media (max-width: 1060px) {
   .center {
     padding: 0 1.2rem;
   }
@@ -56,43 +54,41 @@
   }
 }
 
-
-@media (max-width:900px) {
+@media (max-width: 900px) {
   .center--narrow {
-    max-width:100%;
+    max-width: 100%;
   }
-  .column--center, 
+  .column--center,
   .column--left {
-    display:block;
+    display: block;
     position: relative;
-    width:100%;
-    max-width:100%;
-    flex:auto;
+    width: 100%;
+    max-width: 100%;
+    flex: auto;
   }
   .column--left {
-    padding-left:1.2rem;
+    padding-left: 1.2rem;
   }
 }
 
-
-@media (max-width:800px) {
+@media (max-width: 800px) {
   .center--narrow {
     padding: 0 1.2rem;
   }
   .center .center,
   .column--left {
-    padding:0;
+    padding: 0;
   }
 
   .column {
-    display:block;
+    display: block;
     position: relative;
-    width:100%;
-    max-width:100%;
-    flex:auto;
+    width: 100%;
+    max-width: 100%;
+    flex: auto;
   }
   .column--right {
-    padding-left:0;
-    padding-top:0;
+    padding-left: 0;
+    padding-top: 0;
   }
 }
