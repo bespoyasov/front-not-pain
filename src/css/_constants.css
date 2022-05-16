@@ -1,6 +1,6 @@
 :root {
-  --font-serif: 'PT Serif';
-  --font-sans-serif: 'PT Sans', sans-serif;
+  --font-serif: "PT Serif";
+  --font-sans-serif: "PT Sans", sans-serif;
 
   --nav-width: 200px;
   --right-column-width: 28%;
@@ -30,7 +30,7 @@
   --table-border-color: var(--grey-05);
 }
 
-@media (max-width:1060px) {
+@media (max-width: 1060px) {
   :root {
     --nav-width: 160px;
     --right-column-width: 25%;
