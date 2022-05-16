@@ -35,15 +35,17 @@
     return rect.top + window.pageYOffset;
   }
 
-  // Main script:
-  const MIN_DESKTOP_WIDTH = 801;
+  function currentHash() {
+    return location.hash.replace("#", "");
+  }
 
+  // Main script:
   const sections = document.getElementsByClassName("section");
   const headings = document.getElementsByClassName("section-link");
   const nav = document.getElementById("nav");
 
   let shouldWatchScroll = true;
-  let sectionOffsets, pageWidth;
+  let sectionOffsets;
   updateSizeDependent();
 
   window.addEventListener("scroll", handleScroll, supportsPassive);
@@ -53,6 +55,11 @@
   Array.from(headings).forEach((el) => {
     el.addEventListener("click", handleLinkClick);
   });
+
+  function isNarrowScreen() {
+    const minDesktopWidth = 801;
+    return window.innerWidth < minDesktopWidth;
+  }
 
   function handleLinkClick(e) {
     if (!e.target.closest) return;
@@ -66,7 +73,7 @@
   }
 
   function handleScroll() {
-    if (!shouldWatchScroll || pageWidth < MIN_DESKTOP_WIDTH) return;
+    if (!shouldWatchScroll || isNarrowScreen()) return;
 
     const section = findCurrentSection();
     const id = section ? section.getAttribute("id") : null;
@@ -117,12 +124,11 @@
 
   function updateSizeDependent() {
     sectionOffsets = [...sections].map(getElementOffsetTop);
-    pageWidth = window.innerWidth;
   }
 
   function silentlyChangeHash(newHash) {
-    if (!supportsHistoryApi || pageWidth < MIN_DESKTOP_WIDTH) return;
-    if (newHash === location.hash.replace("#", "")) return;
-    return history.pushState(null, null, `#${newHash}`);
+    if (!supportsHistoryApi || isNarrowScreen()) return;
+    if (newHash === currentHash()) return;
+    history.pushState(null, null, `#${newHash}`);
   }
 })();
