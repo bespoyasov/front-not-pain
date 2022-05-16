@@ -46,10 +46,10 @@
 
   let shouldWatchScroll = true;
   let sectionOffsets;
-  updateSizeDependent();
+  updateSectionOffsets();
 
   window.addEventListener("scroll", handleScroll, supportsPassive);
-  window.addEventListener("resize", throttle(updateSizeDependent));
+  window.addEventListener("resize", throttle(updateSectionOffsets));
 
   nav.addEventListener("click", handleLinkClick);
   Array.from(headings).forEach((el) => {
@@ -122,7 +122,7 @@
     nextActive && nextActive.classList.add(activeLinkClassName);
   }
 
-  function updateSizeDependent() {
+  function updateSectionOffsets() {
     sectionOffsets = [...sections].map(getElementOffsetTop);
   }
 
