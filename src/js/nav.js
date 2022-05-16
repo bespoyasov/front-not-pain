@@ -14,6 +14,21 @@
   const supportsHistoryApi =
     typeof history !== "undefined" && !!history.pushState;
 
+  // Library-like utilities:
+  function throttle(callee, timeout = 250) {
+    let timer = null;
+
+    return function perform(...args) {
+      if (timer) return;
+
+      timer = setTimeout(() => {
+        callee(...args);
+        clearTimeout(timer);
+        timer = null;
+      }, timeout);
+    };
+  }
+
   // Main script:
   const MIN_DESKTOP_WIDTH = 801;
 
@@ -26,7 +41,7 @@
   updateSizeDependent();
 
   window.addEventListener("scroll", handleScroll, supportsPassive);
-  window.addEventListener("resize", updateSizeDependent);
+  window.addEventListener("resize", throttle(updateSizeDependent));
 
   nav.addEventListener("click", handleLinkClick);
   Array.from(headings).forEach((el) => {
