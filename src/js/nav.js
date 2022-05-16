@@ -43,7 +43,7 @@
   const nav = document.getElementById("nav");
 
   let shouldWatchScroll = true;
-  let offsets, pageWidth;
+  let sectionOffsets, pageWidth;
   updateSizeDependent();
 
   window.addEventListener("scroll", handleScroll, supportsPassive);
@@ -96,7 +96,7 @@
 
   function findCurrentSection() {
     const currentPosition = window.scrollY;
-    return offsets.reduce(
+    return sectionOffsets.reduce(
       (section, offset, index) =>
         offset <= currentPosition ? sections[index] : section,
       null
@@ -115,12 +115,8 @@
     nextActive && nextActive.classList.add(activeLinkClassName);
   }
 
-  function calcSectionOffsets() {
-    return Array.from(sections).map((node) => getElementOffsetTop(node));
-  }
-
   function updateSizeDependent() {
-    offsets = calcSectionOffsets();
+    sectionOffsets = [...sections].map(getElementOffsetTop);
     pageWidth = window.innerWidth;
   }
 
