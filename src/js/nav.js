@@ -1,5 +1,5 @@
 (function () {
-  // passive event polyfill
+  // Detect passive event support:
   let passiveArg = false;
   try {
     const opts = Object.defineProperty({}, "passive", {
@@ -10,10 +10,10 @@
     window.addEventListener("test", null, opts);
   } catch (e) {}
 
-  // detect history API for change location.hash
+  // Detect history API support for hash changes:
   const hasHistoryApi = typeof history !== "undefined" && !!history.pushState;
 
-  // nodes and listeners
+  // Main script:
   const SECTIONS_CLSNM = "section";
   const FIXED_CLSNM = "is-fixed";
   const ACTIVE_LINK_CLSNM = "is-active";
@@ -40,7 +40,6 @@
     el.addEventListener("click", handleLinkClick);
   });
 
-  // hadlers
   function handleLinkClick(e) {
     if (!e.target.closest) return;
 
@@ -68,7 +67,6 @@
     updateActiveLink(id);
   }
 
-  // main logic
   function scrollToSection(sectionName) {
     const section = document.getElementById(sectionName);
     if (!section || !sectionName) return;
@@ -119,7 +117,6 @@
     pageWidth = window.innerWidth;
   }
 
-  // helpers
   function calcScrollLimits() {
     const topNode = document.getElementById(LIMIT_SECTION_ID);
     const bottomNode = document.getElementById(BOTTOM_LIMIT_SECTION_ID);
