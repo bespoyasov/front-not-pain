@@ -26,6 +26,11 @@
 
   width: var(--nav-width);
   max-width: var(--nav-width);
+
+  align-self: flex-start;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
 }
 
 .column--right {
@@ -86,6 +91,9 @@
     width: 100%;
     max-width: 100%;
     flex: auto;
+  }
+  .column--left {
+    position: static;
   }
   .column--right {
     padding-left: 0;
