@@ -43,7 +43,7 @@
   const nav = document.getElementById("nav");
 
   let shouldWatchScroll = true;
-  let topLimit, offsets, bottomLimit, pageWidth;
+  let offsets, pageWidth;
   updateSizeDependent();
 
   window.addEventListener("scroll", handleScroll, supportsPassive);
@@ -119,21 +119,7 @@
     return Array.from(sections).map((node) => getElementOffsetTop(node));
   }
 
-  function calcScrollLimits() {
-    const topNode = document.getElementById("pain");
-    const bottomNode = document.getElementById("afterwords");
-
-    return {
-      topLimit: getElementOffsetTop(topNode),
-      bottomLimit: getElementOffsetTop(bottomNode) - window.innerHeight / 2,
-    };
-  }
-
   function updateSizeDependent() {
-    const limits = calcScrollLimits();
-    topLimit = limits.topLimit;
-    bottomLimit = limits.bottomLimit;
-
     offsets = calcSectionOffsets();
     pageWidth = window.innerWidth;
   }
