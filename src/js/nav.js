@@ -29,6 +29,12 @@
     };
   }
 
+  function getElementOffsetTop(node) {
+    if (!node) return 0;
+    const rect = node.getBoundingClientRect();
+    return rect.top + window.pageYOffset;
+  }
+
   // Main script:
   const MIN_DESKTOP_WIDTH = 801;
 
@@ -113,15 +119,6 @@
     return Array.from(sections).map((node) => getElementOffsetTop(node));
   }
 
-  function updateSizeDependent() {
-    const limits = calcScrollLimits();
-    topLimit = limits.topLimit;
-    bottomLimit = limits.bottomLimit;
-
-    offsets = calcSectionOffsets();
-    pageWidth = window.innerWidth;
-  }
-
   function calcScrollLimits() {
     const topNode = document.getElementById("pain");
     const bottomNode = document.getElementById("afterwords");
@@ -132,10 +129,13 @@
     };
   }
 
-  function getElementOffsetTop(node) {
-    if (!node) return 0;
-    const rect = node.getBoundingClientRect();
-    return rect.top + window.pageYOffset;
+  function updateSizeDependent() {
+    const limits = calcScrollLimits();
+    topLimit = limits.topLimit;
+    bottomLimit = limits.bottomLimit;
+
+    offsets = calcSectionOffsets();
+    pageWidth = window.innerWidth;
   }
 
   function silentlyChangeHash(newHash) {
