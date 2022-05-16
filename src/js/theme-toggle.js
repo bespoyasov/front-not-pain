@@ -1,15 +1,14 @@
-(function(){
+(function () {
   // dark theme toggler
-  const toggle = document.getElementById('toggle')
+  const toggle = document.getElementById("toggle");
 
-  toggle.addEventListener('change', () =>
-    document.body.classList.toggle('dark'))
+  toggle.addEventListener("change", () =>
+    document.body.classList.toggle("dark")
+  );
 
-
-  const darkThemeQuery = '(prefers-color-scheme: dark)'
-  const matchMedia = window.matchMedia
+  const darkThemeQuery = "(prefers-color-scheme: dark)";
+  const matchMedia = window.matchMedia;
   if (matchMedia && matchMedia(darkThemeQuery).matches) {
-    toggle.click()
+    toggle.click();
   }
-
-}());
+})();
