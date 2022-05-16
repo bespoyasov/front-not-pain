@@ -80,9 +80,10 @@
   }
 
   function findCurrentSection() {
-    const sct = window.scrollY;
+    const currentPosition = window.scrollY;
     return offsets.reduce(
-      (section, offset, index) => (offset <= sct ? sections[index] : section),
+      (section, offset, index) =>
+        offset <= currentPosition ? sections[index] : section,
       null
     );
   }
@@ -91,15 +92,15 @@
     const activeLinkClassName = "is-active";
     const activeLinkQuery = `.nav a.${activeLinkClassName}`;
 
-    const active = document.querySelector(activeLinkQuery);
-    const newActive = document.querySelector(`[href="#${id}"]`);
-    if (active === newActive) return;
+    const currentActive = document.querySelector(activeLinkQuery);
+    const nextActive = document.querySelector(`[href="#${id}"]`);
+    if (currentActive === nextActive) return;
 
-    active && active.classList.remove(activeLinkClassName);
-    newActive && newActive.classList.add(activeLinkClassName);
+    currentActive && currentActive.classList.remove(activeLinkClassName);
+    nextActive && nextActive.classList.add(activeLinkClassName);
   }
 
-  function updateSectionsOffsets() {
+  function updateSectionOffsets() {
     return Array.from(sections).map((node) => getElementOffsetTop(node));
   }
 
@@ -108,7 +109,7 @@
     topLimit = limits.topLimit;
     bottomLimit = limits.bottomLimit;
 
-    offsets = updateSectionsOffsets();
+    offsets = updateSectionOffsets();
     pageMaxScroll = updatePageMaxScroll();
 
     pageWidth = window.innerWidth;
