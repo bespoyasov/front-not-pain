@@ -11,7 +11,8 @@
   } catch (e) {}
 
   // Detect history API support for hash changes:
-  const hasHistoryApi = typeof history !== "undefined" && !!history.pushState;
+  const supportsHistoryApi =
+    typeof history !== "undefined" && !!history.pushState;
 
   // Main script:
   const MIN_PAGE_WIDTH = 801;
@@ -134,7 +135,7 @@
   }
 
   function silentlyChangeHash(newHash) {
-    if (!hasHistoryApi || newHash === getHash()) return;
+    if (!supportsHistoryApi || newHash === getHash()) return;
     if (pageWidth < MIN_PAGE_WIDTH) return;
     return history.pushState(null, null, `#${newHash}`);
   }
