@@ -61,6 +61,10 @@
     return window.innerWidth < minDesktopWidth;
   }
 
+  function updateSectionOffsets() {
+    sectionOffsets = [...sections].map(getElementOffsetTop);
+  }
+
   function handleLinkClick(e) {
     if (!e.target.closest) return;
 
@@ -70,17 +74,6 @@
     e.preventDefault();
     const sectionName = link.getAttribute("href").replace("#", "");
     scrollToSection(sectionName);
-  }
-
-  function handleScroll() {
-    if (!shouldWatchScroll || isNarrowScreen()) return;
-
-    const section = findCurrentSection();
-    const id = section ? section.getAttribute("id") : null;
-
-    if (!id) return;
-    silentlyChangeHash(id);
-    updateActiveLink(id);
   }
 
   function scrollToSection(sectionName) {
@@ -99,6 +92,17 @@
       top: getElementOffsetTop(section),
       behavior: "smooth",
     });
+  }
+
+  function handleScroll() {
+    if (!shouldWatchScroll || isNarrowScreen()) return;
+
+    const section = findCurrentSection();
+    const id = section ? section.getAttribute("id") : null;
+
+    if (!id) return;
+    silentlyChangeHash(id);
+    updateActiveLink(id);
   }
 
   function findCurrentSection() {
@@ -120,10 +124,6 @@
 
     currentActive && currentActive.classList.remove(activeLinkClassName);
     nextActive && nextActive.classList.add(activeLinkClassName);
-  }
-
-  function updateSectionOffsets() {
-    sectionOffsets = [...sections].map(getElementOffsetTop);
   }
 
   function silentlyChangeHash(newHash) {
