@@ -70,7 +70,7 @@
     shouldWatchScroll = false;
     setTimeout(() => {
       shouldWatchScroll = true;
-      if (sectionName) location.hash = sectionName;
+      location.hash = sectionName;
     }, 500);
 
     window.scrollTo({
