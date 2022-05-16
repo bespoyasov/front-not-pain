@@ -1,11 +1,11 @@
 .nav {
   position: relative;
-  padding:3.5rem 0 2rem;
-  max-height:100vh;
+  padding: 3.5rem 0 2rem;
+  max-height: 100vh;
   overflow: auto;
-  top:0;
+  top: 0;
   font-size: 0.9rem;
-  line-height:1.25em;
+  line-height: 1.25em;
   font-family: var(--font-sans-serif);
   background-color: var(--background-color);
 }
@@ -18,7 +18,7 @@
 
   width: var(--nav-width);
   position: fixed;
-  top:0;
+  top: 0;
 }
 
 .nav ul,
@@ -27,7 +27,7 @@
 }
 
 .nav li {
-  margin-bottom:0.6rem;
+  margin-bottom: 0.6rem;
 }
 
 .nav a {
@@ -38,24 +38,22 @@
   margin-bottom: 1.2rem;
 }
 
-
-@media (min-width:901px) {
+@media (min-width: 901px) {
   .nav a.is-active {
-    border:0;
-    color:var(--active-nav);
+    border: 0;
+    color: var(--active-nav);
     cursor: default;
   }
 }
 
-
-@media (max-width:900px) {
+@media (max-width: 900px) {
   .nav,
   .nav.is-fixed {
-    padding-top:0;
+    padding-top: 0;
     position: relative;
-    max-height:100000vh;
-    height:auto;
-    width:100%;
+    max-height: 100000vh;
+    height: auto;
+    width: 100%;
   }
 
   .nav {
