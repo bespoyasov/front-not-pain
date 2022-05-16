@@ -14,18 +14,10 @@
   const hasHistoryApi = typeof history !== "undefined" && !!history.pushState;
 
   // Main script:
-  const SECTIONS_CLSNM = "section";
-  const FIXED_CLSNM = "is-fixed";
-  const ACTIVE_LINK_CLSNM = "is-active";
-  const ACTIVE_LINK_QUERY = `.nav a.${ACTIVE_LINK_CLSNM}`;
-  const SECTION_HEADINGS = "section-link";
-  const LIMIT_SECTION_ID = "pain";
-  const NAV_ID = "nav";
-  const BOTTOM_LIMIT_SECTION_ID = "afterwords";
   const MIN_PAGE_WIDTH = 801;
 
-  const sections = document.getElementsByClassName(SECTIONS_CLSNM);
-  const headings = document.getElementsByClassName(SECTION_HEADINGS);
+  const sections = document.getElementsByClassName("section");
+  const headings = document.getElementsByClassName("section-link");
   const nav = document.getElementById("nav");
 
   let shouldWatchScroll = true;
@@ -54,9 +46,10 @@
   function handleScroll() {
     if (pageWidth < MIN_PAGE_WIDTH) return;
 
+    const fixedClassName = "is-fixed";
     const sct = window.scrollY;
-    if (sct >= limit && sct < bottomLimit) nav.classList.add(FIXED_CLSNM);
-    else nav.classList.remove(FIXED_CLSNM);
+    if (sct >= limit && sct < bottomLimit) nav.classList.add(fixedClassName);
+    else nav.classList.remove(fixedClassName);
 
     if (!shouldWatchScroll) return;
     const section = findCurrentSection();
@@ -94,12 +87,15 @@
   }
 
   function updateActiveLink(id) {
-    const active = document.querySelector(ACTIVE_LINK_QUERY);
+    const activeLinkClassName = "is-active";
+    const activeLinkQuery = `.nav a.${activeLinkClassName}`;
+
+    const active = document.querySelector(activeLinkQuery);
     const newActive = document.querySelector(`[href="#${id}"]`);
     if (active === newActive) return;
 
-    active && active.classList.remove(ACTIVE_LINK_CLSNM);
-    newActive && newActive.classList.add(ACTIVE_LINK_CLSNM);
+    active && active.classList.remove(activeLinkClassName);
+    newActive && newActive.classList.add(activeLinkClassName);
   }
 
   function updateSectionsOffsets() {
@@ -118,8 +114,9 @@
   }
 
   function calcScrollLimits() {
-    const topNode = document.getElementById(LIMIT_SECTION_ID);
-    const bottomNode = document.getElementById(BOTTOM_LIMIT_SECTION_ID);
+    const topNode = document.getElementById("pain");
+    const bottomNode = document.getElementById("afterwords");
+
     return {
       limit: getElementOffsetTop(topNode),
       bottomLimit: getElementOffsetTop(bottomNode) - window.innerHeight / 2,
