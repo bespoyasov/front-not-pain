@@ -15,7 +15,7 @@
     typeof history !== "undefined" && !!history.pushState;
 
   // Main script:
-  const MIN_PAGE_WIDTH = 801;
+  const MIN_DESKTOP_WIDTH = 801;
 
   const sections = document.getElementsByClassName("section");
   const headings = document.getElementsByClassName("section-link");
@@ -45,7 +45,7 @@
   }
 
   function handleScroll() {
-    if (pageWidth < MIN_PAGE_WIDTH) return;
+    if (pageWidth < MIN_DESKTOP_WIDTH) return;
 
     const fixedClassName = "is-fixed";
     const sct = window.scrollY;
@@ -136,7 +136,7 @@
 
   function silentlyChangeHash(newHash) {
     if (!supportsHistoryApi || newHash === getHash()) return;
-    if (pageWidth < MIN_PAGE_WIDTH) return;
+    if (pageWidth < MIN_DESKTOP_WIDTH) return;
     return history.pushState(null, null, `#${newHash}`);
   }
 
