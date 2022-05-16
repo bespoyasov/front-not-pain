@@ -98,8 +98,6 @@ h2:hover .section-link {
 
 .section .tableContainer {
   margin: 0.5rem 0 1.7rem;
-  /* overflow: scroll; */
-  /* -webkit-overflow-scrolling: touch; */
 }
 
 .section table {
@@ -108,7 +106,6 @@ h2:hover .section-link {
   font-size: 0.9rem;
   line-height: 1.3em;
   width: 100%;
-  /* min-width:500px; */
 }
 
 .section td {
