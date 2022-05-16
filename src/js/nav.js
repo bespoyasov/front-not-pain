@@ -109,7 +109,7 @@
     nextActive && nextActive.classList.add(activeLinkClassName);
   }
 
-  function updateSectionOffsets() {
+  function calcSectionOffsets() {
     return Array.from(sections).map((node) => getElementOffsetTop(node));
   }
 
@@ -118,7 +118,7 @@
     topLimit = limits.topLimit;
     bottomLimit = limits.bottomLimit;
 
-    offsets = updateSectionOffsets();
+    offsets = calcSectionOffsets();
     pageWidth = window.innerWidth;
   }
 
