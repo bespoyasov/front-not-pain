@@ -145,12 +145,8 @@
   }
 
   function silentlyChangeHash(newHash) {
-    if (!supportsHistoryApi || newHash === getHash()) return;
-    if (pageWidth < MIN_DESKTOP_WIDTH) return;
+    if (!supportsHistoryApi || pageWidth < MIN_DESKTOP_WIDTH) return;
+    if (newHash === location.hash.replace("#", "")) return;
     return history.pushState(null, null, `#${newHash}`);
-  }
-
-  function getHash() {
-    return location.hash.replace("#", "");
   }
 })();
