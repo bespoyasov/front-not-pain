@@ -1,8 +1,9 @@
+@import url(../../node_modules/ilyabirman-likely/release/likely.min.css);
+
 @import url(./themes/_light.css);
 @import url(./themes/_dark.css);
 @import url(./_vars.css);
 @import url(./_typograph.css);
-@import url(./_likely.css);
 
 @import url(./globals.css);
 @import url(./grid.css);
