@@ -22,7 +22,7 @@
   const nav = document.getElementById("nav");
 
   let shouldWatchScroll = true;
-  let topLimit, offsets, pageMaxScroll, bottomLimit, pageWidth;
+  let topLimit, offsets, bottomLimit, pageWidth;
   updateSizeDependent();
 
   window.addEventListener("scroll", handleScroll, supportsPassive);
@@ -110,8 +110,6 @@
     bottomLimit = limits.bottomLimit;
 
     offsets = updateSectionOffsets();
-    pageMaxScroll = updatePageMaxScroll();
-
     pageWidth = window.innerWidth;
   }
 
@@ -129,10 +127,6 @@
     if (!node) return 0;
     const rect = node.getBoundingClientRect();
     return rect.top + window.pageYOffset;
-  }
-
-  function updatePageMaxScroll() {
-    return document.body.offsetHeight - window.innerHeight;
   }
 
   function silentlyChangeHash(newHash) {
