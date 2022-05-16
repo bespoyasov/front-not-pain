@@ -10,17 +10,6 @@
   background-color: var(--background-color);
 }
 
-/* scroll inside sticky-container doesn't work properly,
- * so we have to implement it manually I guess */
-.nav.is-fixed {
-  /* fallback */
-  width: 200px;
-
-  width: var(--nav-width);
-  position: fixed;
-  top: 0;
-}
-
 .nav ul,
 .nav li {
   list-style: none;
@@ -47,8 +36,7 @@
 }
 
 @media (max-width: 900px) {
-  .nav,
-  .nav.is-fixed {
+  .nav {
     padding-top: 0;
     position: relative;
     max-height: 100000vh;

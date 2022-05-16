@@ -60,14 +60,8 @@
   }
 
   function handleScroll() {
-    if (pageWidth < MIN_DESKTOP_WIDTH) return;
+    if (!shouldWatchScroll || pageWidth < MIN_DESKTOP_WIDTH) return;
 
-    const fixedClassName = "is-fixed";
-    const sct = window.scrollY;
-    if (sct >= topLimit && sct < bottomLimit) nav.classList.add(fixedClassName);
-    else nav.classList.remove(fixedClassName);
-
-    if (!shouldWatchScroll) return;
     const section = findCurrentSection();
     const id = section ? section.getAttribute("id") : null;
 
