@@ -1,24 +1,24 @@
 .checklist {
-  max-width:1100px;
-  margin:auto;
+  max-width: 1100px;
+  margin: auto;
   padding: 50px 0;
 }
 
 .checklist .grid {
-  padding-top:40px;
+  padding-top: 40px;
 }
 
 .checklist .column {
-  padding:0 25px;
-  width:33%;
-  margin:0;
+  padding: 0 25px;
+  width: 33%;
+  margin: 0;
 }
 
 .checklist .column:first-child {
-  padding-left:0;
+  padding-left: 0;
 }
 .checklist .column:last-child {
-  padding-right:0;
+  padding-right: 0;
 }
 
 .checklist .caption {
@@ -26,7 +26,7 @@
 }
 
 .checklist .tutorials {
-  margin:0;
+  margin: 0;
   list-style: disc;
   font-size: 1rem;
 }
@@ -34,69 +34,65 @@
 .checklist .tutorials li {
   list-style: disc;
   position: relative;
-  margin-left:20px;
+  margin-left: 20px;
 }
 
 .checklist input {
   position: absolute;
-  left:0;
-  top:6px;
+  left: 0;
+  top: 6px;
 }
 
-
-
-@media (max-width:800px) {
+@media (max-width: 800px) {
   .checklist .column {
-    width:100%;
-    margin:0;
-    padding:0 0 1.5rem;
+    width: 100%;
+    margin: 0;
+    padding: 0 0 1.5rem;
   }
   .checklist .caption {
-    margin-left:0;
+    margin-left: 0;
   }
   .checklist input {
-    top:3px;
+    top: 3px;
   }
   .checklist .grid {
-    padding-top:25px;
+    padding-top: 25px;
   }
 }
-
-
 
 @media print {
   .checklist {
-    padding:30px 0;
+    padding: 30px 0;
   }
-  
+
   .checklist h1 {
-    font-size:40px;
-    line-height:0.8em;
-    margin-bottom:10px;
-    padding-bottom:0;
+    font-size: 40px;
+    line-height: 0.8em;
+    margin-bottom: 10px;
+    padding-bottom: 0;
   }
 
   .checklist p {
-    font-size:15px;
+    font-size: 15px;
   }
 
   .checklist .tutorials,
   .checklist .tutorials li,
   .checklist .caption {
-    font-size:15px;
+    font-size: 15px;
   }
 
   .checklist .grid {
-    padding-top:30px;
+    padding-top: 30px;
   }
 
   .checklist .column {
-    padding:0 15px;
+    padding: 0 15px;
   }
   .checklist .column:first-child {
-    padding-left:0;
+    padding-left: 0;
   }
   .checklist .column:last-child {
-    padding-right:0;
+    padding-right: 0;
   }
 }

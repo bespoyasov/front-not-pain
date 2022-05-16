@@ -2,17 +2,17 @@
   position: relative;
   min-height: 540px;
   display: flex;
-  
+
   background-color: var(--header-background);
   background-image: url(../img/sad-frontender.jpg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  
-  color:white;
+
+  color: white;
   text-shadow: 1px 2px 2px var(--grey-3);
   font-size: 2rem;
-  line-height:1.3em;
+  line-height: 1.3em;
   text-align: center;
 }
 
@@ -22,7 +22,6 @@
   }
 }
 
-
 .header h1 {
   font-size: 6rem;
   line-height: 1em;
@@ -31,30 +30,29 @@
 
 .header .content {
   padding: 20px 60px;
-  margin:auto;
+  margin: auto;
   font-family: var(--font-sans-serif);
 }
 
 .header .copyright {
-  color: rgba(255,255,255, 0.4);
+  color: rgba(255, 255, 255, 0.4);
   position: absolute;
-  bottom:10px;
-  right:10px;
+  bottom: 10px;
+  right: 10px;
   font-size: 0.6rem;
-  line-height:1.2em;
+  line-height: 1.2em;
   text-align: right;
-  width:70%;
+  width: 70%;
 }
 
-
-@media (max-width:800px) {
+@media (max-width: 800px) {
   .header h1 {
-    font-size:3.5rem;
-    margin-bottom: 1.2rem
+    font-size: 3.5rem;
+    margin-bottom: 1.2rem;
   }
 }
 
-@media (max-width:640px) {
+@media (max-width: 640px) {
   .header {
     font-size: 1.2rem;
     line-height: 1.3em;
@@ -63,8 +61,8 @@
     font-size: 2.2rem;
   }
   .header .content {
-    padding:0 25px;
-    max-width:380px;
+    padding: 0 25px;
+    max-width: 380px;
   }
   .header .copyright {
     font-size: 0.8rem;
