@@ -1,10 +1,10 @@
 (function () {
   // Detect passive event support:
-  let passiveArg = false;
+  let supportsPassive = false;
   try {
     const opts = Object.defineProperty({}, "passive", {
-      get: () => {
-        passiveArg = { passive: true };
+      get() {
+        supportsPassive = { passive: true };
       },
     });
     window.addEventListener("test", null, opts);
@@ -25,7 +25,7 @@
   let limit, offsets, pageMaxScroll, bottomLimit, pageWidth;
   updateSizeDependent();
 
-  window.addEventListener("scroll", handleScroll, passiveArg);
+  window.addEventListener("scroll", handleScroll, supportsPassive);
   window.addEventListener("resize", updateSizeDependent);
 
   nav.addEventListener("click", handleLinkClick);
