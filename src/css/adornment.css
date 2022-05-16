@@ -1,0 +1,23 @@
+.adorned::after {
+  margin-left: 0.4em;
+}
+
+.adorned--books::after {
+  content: "📖";
+}
+
+.adorned--posts::after {
+  content: "📝";
+}
+
+.adorned--video::after {
+  content: "📹";
+}
+
+.adorned--tools::after {
+  content: "🔨";
+}
+
+.adorned--steps::after {
+  content: "⚡️";
+}
