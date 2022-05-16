@@ -1,5 +1,4 @@
-(function () {
-  // dark theme toggler
+(function setupThemeToggler() {
   const toggle = document.getElementById("toggle");
 
   toggle.addEventListener("change", () =>
