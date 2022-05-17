@@ -18,8 +18,8 @@ jobs:
         with:
           node-version: "16"
 
-      - run: apt-get install imagemagick
-      - run: apt-get install graphicsmagick
+      - run: sudo apt-get install imagemagick
+      - run: sudo apt-get install graphicsmagick
       - run: npm ci
       - run: npm run build
 
