@@ -1,23 +1,18 @@
-Hello world! 
+Hello world!
 
-Author: Alex Bespoyasov
-Mail:   bespoyasov@me.com
-Github: https://github.com/bespoyasov
-
+Author:     Alex Bespoyasov
+Email:      bespoyasov@me.com
+Github:     https://github.com/bespoyasov
 Telegram:   https://telegram.me/bespoyasov
 Twitter:    https://twitter.com/bespoyasov
 
-
-Author: Vadim Yumadilov
-Mail:   yumadilov@gmail.com
-
+Author:     Vadim Yumadilov
+Email:      yumadilov@gmail.com
 Telegram:   https://telegram.me/yumadilov
 Twitter:    https://twitter.com/yumadilov
 
-
-Author: Andrey Romanov
-Mail:   me@andrew-r.ru
-Github: https://github.com/andrew--r
-
+Author:     Andrey Romanov
+Email:      me@andrew-r.ru
+Github:     https://github.com/andrew--r
 Telegram:   https://telegram.me/andrew_r
 Twitter:    https://twitter.com/andrew__romanov
