@@ -6,7 +6,6 @@ on:
       - master
     paths:
       - "src/**"
-      - ".github/**"
 
 jobs:
   publish:
