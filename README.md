@@ -22,3 +22,7 @@
 
 - [Пособие «Фронтенд — это не больно!»](https://bespoyasov.ru/front-not-pain/)
 - [Чеклист: что делать, чему учиться, как себя проверять](https://bespoyasov.ru/front-not-pain/checklist.html)
+
+## Лицензии
+
+Текст пособия распространяется под лицензией [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/). Вы можете копировать, изменять и использовать его в проектах на некоммерческой основе. Исходный код проекта распространяется под лицензией [MIT](https://opensource.org/licenses/MIT).
