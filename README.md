@@ -1,8 +1,8 @@
+> [Read description in English](./docs/en.md). The project translation is on the way. Stay tuned!
+
 # Фронтенд — это не больно!
 
 О том как работать в кайф. [Пособие](https://bespoyasov.ru/front-not-pain/) для разработчиков и сочувствующих.
-
-> [Readme in English](./docs/en.md). The project translation is on the way. Stay tuned!
 
 ## О чём это и для кого
 
