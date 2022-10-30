@@ -2,7 +2,7 @@
 
 [Пособие](https://bespoyasov.ru/front-not-pain/) для разработчиков и сочувствующих.
 
-> Read [in English](./docs/en.md).
+> [Readme in English](./docs/en.md). The project translation is on the way. Stay tuned!
 
 ## О чём это и для кого
 
